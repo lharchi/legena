@@ -74,7 +74,7 @@
             transition: width 0.1s linear;
         }
 
-        /* شاشة تسجيل الدخول الإبداعية */
+        /* شاشة تسجيل الدخول */
         .login-screen {
             min-height: 100vh;
             display: flex;
@@ -715,7 +715,7 @@
             font-size: 0.93rem;
         }
 
-        /* نافذة العرض التفصيلي (Modal) مع مشغل الفيديو التفاعلي */
+        /* نافذة العرض التفصيلي (Modal) مع مشغل الفيديو التفاعلي والصور */
         .modal {
             display: none;
             position: fixed;
@@ -768,8 +768,8 @@
             background: #e2d8c9;
         }
 
-        /* حاوية الفيديو التوضيحي الإبداعي داخل النافذة */
-        .modal-video-container {
+        /* حاوية الفيديو التوضيحي المضمن داخل النافذة */
+        .modal-video-box {
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
@@ -777,27 +777,31 @@
             margin-bottom: 1.2rem;
             border: 2px solid var(--secondary-color);
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-            position: relative;
         }
 
-        .modal-video-container video {
+        .modal-video-box video {
             width: 100%;
-            height: 250px;
+            height: 240px;
             object-fit: cover;
             display: block;
         }
 
-        .video-caption-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(14,30,51,0.85));
-            color: #f8e39c;
-            padding: 0.8rem 1rem;
-            font-size: 0.9rem;
-            font-weight: 700;
-            font-family: var(--font-heritage);
+        /* حاوية الصور التوضيحية */
+        .modal-banner {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .modal-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .modal-body h2 {
@@ -1090,7 +1094,7 @@
             </section>
         </div>
 
-        <!-- نافذة التفاصيل المنبثقة مع مشغل الفيديو -->
+        <!-- نافذة التفاصيل المنبثقة مع الفيديو والصور -->
         <div class="modal" id="scholarModal">
             <div class="modal-content">
                 <button class="close-modal" id="closeModal">&times;</button>
@@ -1133,8 +1137,8 @@
                 category: "الرياضيات والفلك",
                 theme: "theme-1",
                 caption: "بيت الحكمة – بغداد",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-and-numbers-31950-large.mp4",
-                videoCaption: "فيديو توضيحي تفاعلي: نشأة علم الجبر والخوارزميات",
+                imageUrl: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
                 summary: "عالم رياضيات وفلك وجغرافيا بارز في بيت الحكمة ببغداد في عهد الخليفة المأمون، واضع علم الجبر كعلم مستقل ومؤسس الخوارزميات.",
                 highlights: [
                     "مؤسس علم الجبر والمقابلة كعلم مستقل عن الحساب.",
@@ -1159,8 +1163,8 @@
                 category: "الأدب والملاحظة الطبيعية",
                 theme: "theme-2",
                 caption: "حاضرة البصرة وبغداد",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-writing-in-a-notebook-42770-large.mp4",
-                videoCaption: "فيديو توضيحي تفاعلي: بلاغة النثر وموسوعة الحيوان للجاحظ",
+                imageUrl: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=900&q=80",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
                 summary: "أحد أعظم أئمة النثر العربي في العصر العباسي، جمع بين البلاغة الأدبية، الموسوعية الفكرية، والملاحظة الدقيقة لطبائع الحيوان والإنسان.",
                 highlights: [
                     "مؤلف موسوعة (الحيوان) التي جمعت الأدب بعلم الطبائع.",
@@ -1185,8 +1189,8 @@
                 category: "الفيزياء والبصريات",
                 theme: "theme-3",
                 caption: "رائد المنهج التجريبي",
-                videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-light-reflections-in-a-dark-room-41584-large.mp4",
-                videoCaption: "فيديو توضيحي تفاعلي: تجربة البصريات والغرفة المظلمة لابن الهيثم",
+                imageUrl: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
                 summary: "عالم موسوعي في البصريات والرياضيات والهندسة، صحّح نظريات الإبصار القديمة وأثبت أن الرؤية تحدث بانعكاس الضوء من الأجسام إلى العين.",
                 highlights: [
                     "مؤلف كتاب (المناظر) المرجع الأساسي لعلم البصريات.",
@@ -1336,12 +1340,16 @@
             if (!s) return;
 
             modalBody.innerHTML = `
-                <div class="modal-video-container">
-                    <video controls autoplay muted loop>
+                <!-- مشغل الفيديو المضمن والجاهز للتشغيل -->
+                <div class="modal-video-box">
+                    <video controls autoplay muted>
                         <source src="${s.videoUrl}" type="video/mp4">
-                        متصفحك لا يدعم عرض الفيديو.
+                        متصفحك لا يدعم تشغيل الفيديو.
                     </video>
-                    <div class="video-caption-overlay">${s.videoCaption}</div>
+                </div>
+                <!-- الصورة التوضيحية -->
+                <div class="modal-banner">
+                    <img src="${s.imageUrl}" alt="${s.name}">
                 </div>
                 <h2>${s.name}</h2>
                 <div class="modal-meta">${s.category} | ${s.dates}</div>
