@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#162e4d">
-    <title>بحث حول علماء العصر العباسي | القسم: 2 علوم تجريبية 2</title>
+    <title>موسوعة علماء العصر العباسي | بحث أكاديمي شامل</title>
     
-    <!-- استيراد الخطوط العربية التراثية والحديثة -->
+    <!-- استيراد الخطوط التراثية والحديثة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     
     <style>
-        :root {
+        :root[data-theme="light"] {
             --primary-color: #162e4d;
             --primary-light: #234775;
             --secondary-color: #c59b27;
@@ -21,11 +21,27 @@
             --card-bg: rgba(255, 255, 255, 0.96);
             --text-dark: #1e293b;
             --text-muted: #5a6778;
-            --border-radius: 16px;
+            --border-color: rgba(197, 155, 39, 0.3);
             --shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
-            --font-main: 'Tajawal', sans-serif;
-            --font-heritage: 'Amiri', serif;
-            --font-kufi: 'Reem Kufi', sans-serif;
+            --table-header: #162e4d;
+            --table-header-text: #f8e39c;
+            --table-row-even: #fcfaf4;
+        }
+
+        :root[data-theme="dark"] {
+            --primary-color: #38bdf8;
+            --primary-light: #0284c7;
+            --secondary-color: #fbbf24;
+            --secondary-light: #f59e0b;
+            --bg-parchment: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.95);
+            --text-dark: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(251, 191, 36, 0.25);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --table-header: #1e293b;
+            --table-header-text: #fbbf24;
+            --table-row-even: #1e293b;
         }
 
         * {
@@ -34,6 +50,14 @@
             padding: 0;
             font-family: var(--font-main);
             -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        :root {
+            --font-main: 'Tajawal', sans-serif;
+            --font-heritage: 'Amiri', serif;
+            --font-kufi: 'Reem Kufi', sans-serif;
+            --border-radius: 16px;
         }
 
         html {
@@ -42,7 +66,6 @@
 
         body {
             background-color: var(--bg-parchment);
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23c59b27' stroke-width='0.7' stroke-opacity='0.18'%3E%3Cpath d='M40 0l11.7 28.3L80 40 51.7 51.7 40 80 28.3 51.7 0 40l28.3-11.7z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             color: var(--text-dark);
             line-height: 1.8;
             padding-bottom: 85px;
@@ -97,6 +120,7 @@
             border-top: 6px solid var(--secondary-color);
             position: relative;
             z-index: 2;
+            color: #1e293b;
         }
 
         .login-badge {
@@ -111,14 +135,14 @@
         }
 
         .login-card h1 {
-            color: var(--primary-color);
+            color: #162e4d;
             font-family: var(--font-kufi);
             font-size: 1.7rem;
             margin-bottom: 0.4rem;
         }
 
         .login-card p {
-            color: var(--text-muted);
+            color: #5a6778;
             font-size: 0.95rem;
             margin-bottom: 1.4rem;
         }
@@ -130,7 +154,7 @@
         .form-group label {
             display: block;
             font-weight: 700;
-            color: var(--text-dark);
+            color: #1e293b;
             margin-bottom: 0.4rem;
             font-size: 0.95rem;
         }
@@ -148,7 +172,8 @@
             border-radius: 10px;
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            color: #1e293b;
+            background: #fff;
         }
 
         .password-wrapper input {
@@ -156,7 +181,7 @@
         }
 
         .form-group input:focus {
-            border-color: var(--primary-color);
+            border-color: #162e4d;
             box-shadow: 0 0 0 3px rgba(22, 46, 77, 0.12);
         }
 
@@ -165,7 +190,7 @@
             left: 0.75rem;
             background: none;
             border: none;
-            color: var(--primary-color);
+            color: #162e4d;
             cursor: pointer;
             font-size: 0.88rem;
             font-weight: 700;
@@ -173,7 +198,7 @@
 
         .login-btn {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background: linear-gradient(135deg, #162e4d, #234775);
             color: #fff;
             border: none;
             padding: 0.9rem 1rem;
@@ -181,13 +206,8 @@
             font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.15s, box-shadow 0.2s;
             margin-top: 0.4rem;
             box-shadow: 0 6px 15px rgba(22, 46, 77, 0.25);
-        }
-
-        .login-btn:hover {
-            transform: translateY(-2px);
         }
 
         .login-error {
@@ -217,9 +237,9 @@
             position: sticky;
             top: 0;
             z-index: 900;
-            background: rgba(22, 46, 77, 0.95);
+            background: var(--card-bg);
             backdrop-filter: blur(12px);
-            color: #fff;
+            color: var(--text-dark);
             padding: 0.7rem 1.2rem;
             display: flex;
             justify-content: space-between;
@@ -234,7 +254,7 @@
             gap: 0.6rem;
             font-family: var(--font-kufi);
             font-size: 1.15rem;
-            color: #f8e39c;
+            color: var(--secondary-color);
         }
 
         .app-top-actions {
@@ -244,22 +264,21 @@
         }
 
         .icon-btn {
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
             padding: 0.4rem 0.85rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
         }
 
         .icon-btn:hover {
-            background: rgba(255, 255, 255, 0.22);
+            opacity: 0.85;
         }
 
         .icon-btn.gold {
@@ -268,57 +287,70 @@
             border: none;
         }
 
-        header {
-            background: linear-gradient(135deg, #162e4d 0%, #0d1d33 100%);
+        /* 1 & 2. غلاف أكاديمي احترافي يشبه الموسوعات */
+        .academic-cover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0d1d33 100%);
             color: #fff;
-            padding: 3rem 1.5rem 2.6rem;
+            padding: 4.5rem 1.5rem 4rem;
             text-align: center;
-            border-bottom: 5px solid var(--secondary-color);
+            border-bottom: 6px solid var(--secondary-color);
             position: relative;
             overflow: hidden;
         }
 
-        header h1 {
-            font-family: var(--font-kufi);
-            font-size: 2.4rem;
-            margin-bottom: 0.6rem;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        .academic-cover .encyclopedia-seal {
+            display: inline-block;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-light);
+            padding: 0.4rem 1.5rem;
+            border-radius: 30px;
+            font-family: var(--font-heritage);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            background: rgba(197, 155, 39, 0.1);
         }
 
-        header p {
+        .academic-cover h1 {
+            font-family: var(--font-kufi);
+            font-size: 2.6rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+
+        .academic-cover p {
             font-family: var(--font-heritage);
             font-size: 1.25rem;
             color: #f1e6c8;
-            max-width: 780px;
-            margin: 0 auto 1.2rem;
+            max-width: 820px;
+            margin: 0 auto 2.2rem;
         }
 
-        .header-badges {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.6rem;
+        .cover-details-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            max-width: 950px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: right;
         }
 
-        .class-pill, .user-pill {
-            display: inline-block;
-            padding: 0.35rem 1rem;
-            border-radius: 20px;
+        .cover-detail-item strong {
+            display: block;
+            color: var(--secondary-light);
+            font-size: 0.88rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cover-detail-item span {
+            font-size: 1.05rem;
             font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .class-pill {
-            background: rgba(197, 155, 39, 0.22);
-            border: 1px solid var(--secondary-color);
-            color: #f8e39c;
-        }
-
-        .user-pill {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: #e2e8f0;
+            color: #fff;
         }
 
         .container {
@@ -327,53 +359,177 @@
             padding: 1.8rem 1.2rem;
         }
 
-        .intro-section {
+        /* الفهرس المنظم */
+        .toc-section {
             background: var(--card-bg);
             padding: 2rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             margin-bottom: 2rem;
             border-right: 5px solid var(--secondary-color);
+            border: 1px solid var(--border-color);
         }
 
-        .intro-section h2 {
+        .toc-section h2 {
             color: var(--primary-color);
             font-family: var(--font-kufi);
-            margin-bottom: 0.8rem;
-            font-size: 1.65rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
         }
 
-        .intro-section p {
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--bg-parchment);
+            padding: 0.8rem 1.1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.98rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .toc-item:hover {
+            transform: translateY(-3px);
+            color: var(--secondary-color);
+        }
+
+        .section-box {
+            background: var(--card-bg);
+            padding: 2.2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            border-right: 6px solid var(--secondary-color);
+        }
+
+        .section-box h2 {
+            color: var(--primary-color);
+            font-family: var(--font-kufi);
+            margin-bottom: 1.2rem;
+            font-size: 1.7rem;
+        }
+
+        .section-box p {
             font-family: var(--font-heritage);
             font-size: 1.2rem;
-            color: #2b384a;
+            color: var(--text-dark);
+            margin-bottom: 1.1rem;
         }
 
-        .stats-grid {
+        /* 5. الخط الزمني (Timeline) للعصر العباسي */
+        .timeline {
+            position: relative;
+            margin: 1.5rem 0;
+            padding-right: 1.5rem;
+            border-right: 3px solid var(--secondary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -1.78rem;
+            top: 0.3rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 2px solid var(--card-bg);
+        }
+
+        .timeline-year {
+            font-weight: 800;
+            color: var(--secondary-color);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-title {
+            font-family: var(--font-kufi);
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-desc {
+            font-family: var(--font-heritage);
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* 6. قسم الاختراعات والاكتشافات */
+        .discoveries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
             margin-top: 1.5rem;
         }
 
-        .stat-box {
-            background: #fcfaf4;
-            border: 1px solid rgba(197, 155, 39, 0.35);
-            padding: 1.1rem;
+        .discovery-card {
+            background: var(--bg-parchment);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            text-align: center;
-            transition: transform 0.2s;
+            padding: 1.4rem;
+            border-top: 4px solid var(--secondary-color);
         }
 
-        .stat-box:hover {
-            transform: translateY(-3px);
-        }
-
-        .stat-box h3 {
-            color: #9e7814;
+        .discovery-card h3 {
             font-family: var(--font-kufi);
-            font-size: 1.35rem;
-            margin-bottom: 0.25rem;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .discovery-card p {
+            font-family: var(--font-heritage);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* 7. جدول المقارنة العلمية */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            background: var(--card-bg);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1rem;
+        }
+
+        .comparison-table th {
+            background: var(--table-header);
+            color: var(--table-header-text);
+            font-family: var(--font-kufi);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--table-row-even);
         }
 
         .controls {
@@ -384,10 +540,10 @@
             align-items: center;
             margin-bottom: 1.8rem;
             background: var(--card-bg);
-            padding: 1.1rem;
+            padding: 1.2rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            border: 1px solid rgba(197, 155, 39, 0.25);
+            border: 1px solid var(--border-color);
         }
 
         .search-box {
@@ -398,15 +554,12 @@
         .search-box input {
             width: 100%;
             padding: 0.75rem 1rem;
-            border: 1.5px solid #cbd5e1;
+            border: 1.5px solid var(--border-color);
             border-radius: 10px;
             font-size: 0.98rem;
             outline: none;
-            background: #fdfbf7;
-        }
-
-        .search-box input:focus {
-            border-color: var(--secondary-color);
+            background: var(--bg-parchment);
+            color: var(--text-dark);
         }
 
         .filter-buttons {
@@ -416,22 +569,22 @@
         }
 
         .filter-btn {
-            background: #efeae0;
+            background: var(--bg-parchment);
             color: var(--text-dark);
-            border: none;
+            border: 1px solid var(--border-color);
             padding: 0.55rem 1rem;
             border-radius: 10px;
             cursor: pointer;
             font-weight: 700;
             font-size: 0.9rem;
-            transition: all 0.2s;
         }
 
         .filter-btn.active, .filter-btn:hover {
             background: var(--primary-color);
-            color: #f8e39c;
+            color: var(--table-header-text);
         }
 
+        /* 3 & 4. بطاقات العلماء وصفحاتهم المستقلة والصور */
         .scholars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -443,21 +596,15 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 1px solid rgba(197, 155, 39, 0.3);
-        }
-
-        .scholar-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.15);
+            border: 1px solid var(--border-color);
         }
 
         .scholar-media {
             position: relative;
-            height: 195px;
+            height: 210px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -465,43 +612,11 @@
             border-bottom: 3px solid var(--secondary-color);
         }
 
-        .scholar-art-placeholder {
+        .scholar-media img {
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .scholar-art-placeholder.theme-1 { background: linear-gradient(135deg, #162e4d 0%, #264e80 100%); }
-        .scholar-art-placeholder.theme-2 { background: linear-gradient(135deg, #5c3a21 0%, #8f5c14 100%); }
-        .scholar-art-placeholder.theme-3 { background: linear-gradient(135deg, #0d4654 0%, #1a2d42 100%); }
-
-        .scholar-monogram {
-            font-family: var(--font-kufi);
-            font-size: 1.9rem;
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: rgba(197, 155, 39, 0.2);
-            border: 2px solid var(--secondary-light);
-            color: #f8e39c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .scholar-art-caption {
-            font-family: var(--font-heritage);
-            font-size: 1rem;
-            color: #f8e39c;
+            object-fit: cover;
+            display: block;
         }
 
         .scholar-body {
@@ -515,7 +630,7 @@
         .badge {
             display: inline-block;
             background: rgba(197, 155, 39, 0.16);
-            color: #8a6608;
+            color: var(--secondary-color);
             padding: 0.25rem 0.8rem;
             border-radius: 20px;
             font-size: 0.84rem;
@@ -542,18 +657,17 @@
             font-family: var(--font-heritage);
             font-size: 1.12rem;
             margin-bottom: 0.9rem;
-            color: #2c3a4b;
         }
 
         .card-highlights {
             list-style: none;
-            background: #fcfaf4;
+            background: var(--bg-parchment);
             border-right: 3px solid var(--secondary-color);
             border-radius: 8px;
             padding: 0.8rem 1rem;
             margin-bottom: 1.2rem;
             font-size: 0.92rem;
-            color: #475569;
+            color: var(--text-muted);
         }
 
         .card-highlights li {
@@ -569,7 +683,6 @@
             font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: all 0.2s;
             width: 100%;
             display: flex;
             align-items: center;
@@ -577,150 +690,12 @@
             gap: 0.5rem;
         }
 
-        .details-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        /* قسم 3D وتطوير الموقع */
-        .dev-3d-section {
-            margin-top: 2.5rem;
-            perspective: 1100px;
-        }
-
-        .dev-3d-ribbon {
-            background: linear-gradient(125deg, #0e1e33 0%, #162e4d 55%, #234775 100%);
-            color: #fff;
-            border-radius: 16px;
-            padding: 1.8rem 2rem;
-            border: 1px solid rgba(248, 227, 156, 0.35);
-            border-bottom: 5px solid var(--secondary-color);
-            box-shadow: 0 22px 45px rgba(16, 32, 54, 0.26);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dev-3d-content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .dev-3d-tag {
-            display: inline-block;
-            background: rgba(197, 155, 39, 0.22);
-            border: 1px solid rgba(248, 227, 156, 0.5);
-            color: #f8e39c;
-            padding: 0.22rem 0.8rem;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .dev-3d-info h2 {
-            font-family: var(--font-kufi);
-            font-size: 1.5rem;
-            margin-bottom: 0.35rem;
-            color: #fff;
-        }
-
-        .dev-3d-info p {
-            color: #dbeafe;
-            font-size: 0.95rem;
-            max-width: 560px;
-        }
-
-        .contact-3d-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.85rem;
-        }
-
-        .contact-3d-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            padding: 0.72rem 1.2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.94rem;
-            background: var(--secondary-color);
-            color: #112238;
-            box-shadow: 0 10px 22px rgba(197, 155, 39, 0.3);
-            transition: transform 0.2s ease;
-        }
-
-        .contact-3d-link:hover {
-            transform: translateY(-3px);
-        }
-
-        .conclusion {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            margin-top: 2.2rem;
-            border-top: 4px solid var(--primary-color);
-        }
-
-        .conclusion h2 {
-            color: var(--primary-color);
-            font-family: var(--font-kufi);
-            margin-bottom: 1rem;
-        }
-
-        .conclusion p {
-            font-family: var(--font-heritage);
-            font-size: 1.18rem;
-            margin-bottom: 0.9rem;
-            color: #2b384a;
-        }
-
-        .developers-box {
-            background: #fcfaf4;
-            border: 1px solid rgba(197, 155, 39, 0.35);
-            border-radius: 12px;
-            padding: 1.2rem 1.4rem;
-            border-right: 4px solid var(--secondary-color);
-            margin-top: 1.2rem;
-        }
-
-        .developers-box h3 {
-            color: var(--primary-color);
-            font-family: var(--font-kufi);
-            font-size: 1.15rem;
-            margin-bottom: 0.7rem;
-        }
-
-        .developers-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            list-style: none;
-        }
-
-        .developers-list li {
-            background: #fff;
-            border: 1px solid rgba(197, 155, 39, 0.4);
-            color: var(--primary-color);
-            padding: 0.4rem 0.9rem;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.93rem;
-        }
-
-        /* نافذة العرض التفصيلي (Modal) مع مشغل الفيديو التفاعلي والصور */
+        /* نافذة العرض التفصيلي المستقل لكل عالم مع الصور والمؤلفات */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(13, 29, 51, 0.8);
+            background: rgba(13, 29, 51, 0.82);
             backdrop-filter: blur(6px);
             z-index: 2000;
             justify-content: center;
@@ -729,21 +704,16 @@
         }
 
         .modal-content {
-            background: #fdfbf7;
-            max-width: 820px;
+            background: var(--card-bg);
+            color: var(--text-dark);
+            max-width: 850px;
             width: 100%;
             border-radius: 18px;
-            padding: 2rem;
+            padding: 2.2rem;
             position: relative;
             max-height: 92vh;
             overflow-y: auto;
             border-top: 6px solid var(--secondary-color);
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .close-modal {
@@ -756,127 +726,90 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--primary-color);
-            background: #efeae0;
-            border: none;
+            background: var(--bg-parchment);
+            border: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s;
         }
 
-        .close-modal:hover {
-            background: #e2d8c9;
-        }
-
-        /* حاوية الفيديو التوضيحي المضمن داخل النافذة */
-        .modal-video-box {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #000;
-            margin-bottom: 1.2rem;
-            border: 2px solid var(--secondary-color);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-        }
-
-        .modal-video-box video {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* حاوية الصور التوضيحية */
         .modal-banner {
             width: 100%;
-            height: 220px;
+            height: 300px;
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 1.2rem;
             border: 2px solid var(--secondary-color);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
         .modal-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
         .modal-body h2 {
             color: var(--primary-color);
             font-family: var(--font-kufi);
             margin-bottom: 0.35rem;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
         }
 
         .modal-meta {
-            color: #8a6608;
+            color: var(--secondary-color);
             font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid rgba(197, 155, 39, 0.3);
-        }
-
-        .modal-tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
+            font-size: 0.98rem;
             margin-bottom: 1.2rem;
-        }
-
-        .copy-btn {
-            background: var(--primary-color);
-            color: #f8e39c;
-            border: none;
-            padding: 0.55rem 1.1rem;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .copy-btn:hover {
-            background: var(--primary-light);
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .modal-body h4 {
             color: var(--primary-color);
             font-family: var(--font-kufi);
-            margin: 1.25rem 0 0.5rem;
-            font-size: 1.18rem;
+            margin: 1.4rem 0 0.5rem;
+            font-size: 1.25rem;
             border-right: 3px solid var(--secondary-color);
             padding-right: 0.6rem;
         }
 
         .modal-body p {
             font-family: var(--font-heritage);
-            color: #2b384a;
-            margin-bottom: 0.75rem;
-            font-size: 1.15rem;
+            margin-bottom: 0.85rem;
+            font-size: 1.18rem;
         }
 
         .modal-body ul {
             padding-right: 1.4rem;
             margin-bottom: 1rem;
+            font-family: var(--font-heritage);
+            font-size: 1.12rem;
         }
 
         .modal-body li {
             margin-bottom: 0.55rem;
-            color: #334155;
         }
 
-        /* شريط التنقل السفلي للتطبيق */
+        /* 8. المصادر والمراجع */
+        .references-list {
+            padding-right: 1.2rem;
+            font-family: var(--font-heritage);
+            font-size: 1.12rem;
+        }
+
+        .references-list li {
+            margin-bottom: 0.7rem;
+        }
+
+        /* شريط التنقل السفلي */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             height: 70px;
-            background: rgba(22, 46, 77, 0.97);
+            background: var(--card-bg);
             backdrop-filter: blur(12px);
             border-top: 2px solid var(--secondary-color);
             display: flex;
@@ -889,7 +822,7 @@
         .nav-item {
             background: none;
             border: none;
-            color: #cbd5e1;
+            color: var(--text-muted);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -900,16 +833,10 @@
             cursor: pointer;
             padding: 0.4rem 0.8rem;
             border-radius: 10px;
-            transition: color 0.2s, transform 0.15s;
-        }
-
-        .nav-item span.nav-icon {
-            font-size: 1.2rem;
         }
 
         .nav-item.active, .nav-item:hover {
-            color: #f8e39c;
-            transform: translateY(-2px);
+            color: var(--secondary-color);
         }
 
         .app-toast {
@@ -928,7 +855,6 @@
             pointer-events: none;
             transition: all 0.3s ease;
             z-index: 3000;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
 
         .app-toast.show {
@@ -946,13 +872,15 @@
             border-top: 2px solid var(--secondary-color);
         }
 
+        /* 9. زر تحميل/طباعة البحث PDF بتنسيق أكاديمي خالي من عناصر التحكم */
         @media print {
-            body { background: #fff !important; padding-bottom: 0 !important; }
-            .controls, .details-btn, .app-topbar, .bottom-nav, footer, .login-screen, .reading-progress, .modal-tools, .dev-3d-section, .abjad-ribbon { display: none !important; }
+            body { background: #fff !important; color: #000 !important; padding-bottom: 0 !important; }
+            .controls, .details-btn, .app-topbar, .bottom-nav, footer, .login-screen, .reading-progress, .modal, .abjad-ribbon { display: none !important; }
             .app-content { display: block !important; }
-            .scholar-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
-            header { background: #fff !important; color: #000 !important; border-bottom: 2px solid #000; }
-            header h1, header p, .class-pill, .user-pill { color: #000 !important; border-color: #000 !important; background: transparent !important; }
+            .academic-cover { background: #fff !important; color: #000 !important; border-bottom: 2px solid #000; page-break-after: always; }
+            .academic-cover h1, .academic-cover p, .cover-detail-item strong, .cover-detail-item span, .university-title, .encyclopedia-seal { color: #000 !important; background: transparent !important; border-color: #000 !important; }
+            .section-box, .toc-section { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; background: #fff !important; color: #000 !important; margin-bottom: 2rem; }
+            .scholar-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 1.5rem; }
         }
     </style>
 </head>
@@ -966,7 +894,7 @@
         <div class="login-card">
             <span class="login-badge">القسم: 2 علوم تجريبية 2</span>
             <h1>موسوعة علماء العصر العباسي</h1>
-            <p>يرجى إدخال اسم المستخدم وكلمة المرور للدخول إلى التطبيق البحثي التفاعلي.</p>
+            <p>يرجى إدخال اسم المستخدم وكلمة المرور للدخول إلى الموسوعة الأكاديمية.</p>
 
             <form id="loginForm">
                 <div class="form-group">
@@ -982,8 +910,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class="login-btn">دخول إلى التطبيق</button>
-                <div class="login-error" id="loginError">اسم المستخدم أو كلمة المرور غير صحيحة.</div>
+                <button type="submit" class="login-btn">دخول إلى الموسوعة</button>
+                <div class="login-error" id="loginError"></div>
             </form>
         </div>
     </div>
@@ -993,10 +921,11 @@
         <nav class="app-topbar">
             <div class="app-brand">
                 <span>📜</span>
-                <span>موسوعة العصر العباسي</span>
+                <span>الموسوعة التاريخية التفاعلية</span>
             </div>
             <div class="app-top-actions">
-                <button class="icon-btn gold" onclick="window.print()">🖨️ طباعة / PDF</button>
+                <button class="icon-btn" id="themeToggleBtn" title="تبديل الوضع الليلي والنهاري">🌙 الوضع الليلي</button>
+                <button class="icon-btn gold" onclick="window.print()">📥 تحميل / طباعة PDF</button>
                 <button class="icon-btn" id="logoutBtn">🔒 خروج</button>
             </div>
         </nav>
@@ -1005,40 +934,89 @@
             أ ب ج د هـ و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث خ ذ ض ظ غ • بيت الحكمة • بغداد
         </div>
 
-        <header id="sec-home">
-            <div class="header-badges">
-                <span class="class-pill">القسم: 2 علوم تجريبية 2</span>
-                <span class="user-pill" id="activeUserBadge">المستخدم: admin</span>
+        <!-- 1 & 2. واجهة رئيسية فيها عنوان البحث ومقدمة أنيقة وغلاف أكاديمي -->
+        <header class="academic-cover" id="sec-cover">
+            <div class="encyclopedia-seal">الموسوعة التاريخية الأكاديمية الموثقة</div>
+            <h1>بحث شامل حول علماء العصر العباسي وإسهاماتهم الحضارية</h1>
+            <p>دراسة توثيقية تحليلية مقارنة في الرياضيات والأدب والبصريات والمنهج التجريبي الحديث</p>
+            
+            <div class="cover-details-box">
+                <div class="cover-detail-item">
+                    <strong>المادة الدراسية</strong>
+                    <span>التاريخ والحضارة الإسلامية</span>
+                </div>
+                <div class="cover-detail-item">
+                    <strong>القسم الدراسي</strong>
+                    <span>الثانية علوم تجريبية (2 ع ت 2)</span>
+                </div>
+                <div class="cover-detail-item">
+                    <strong>إشراف الأستاذة الفاضلة</strong>
+                    <span>أستاذة المادة المحترمة</span>
+                </div>
+                <div class="cover-detail-item">
+                    <strong>إعداد فريق البحث</strong>
+                    <span>لعيشي، بن عيسي، علاف، صحراوي، سليم</span>
+                </div>
             </div>
-            <h1>بحث حول علماء العصر العباسي</h1>
-            <p>دراسة موسّعة للخوارزمي والجاحظ وابن الهيثم: السيرة والمنهج، أبرز الإنجازات، المؤلفات، والأثر المعرفي</p>
         </header>
 
         <div class="container">
-            <section class="intro-section" id="sec-intro">
-                <h2>مقدمة البحث</h2>
+            <!-- الفهرس المنظم -->
+            <section class="toc-section" id="sec-toc">
+                <h2>فهرس محتويات الموسوعة البحثية</h2>
+                <div class="toc-grid">
+                    <a href="#sec-intro" class="toc-item"><span>1.</span> مقدمة البحث والأهمية</a>
+                    <a href="#sec-timeline" class="toc-item"><span>2.</span> الخط الزمني للعصر العباسي</a>
+                    <a href="#sec-scholars" class="toc-item"><span>3.</span> الصفحات المستقلة للعلماء</a>
+                    <a href="#sec-discoveries" class="toc-item"><span>4.</span> أبرز الاختراعات والاكتشافات</a>
+                    <a href="#sec-comparison" class="toc-item"><span>5.</span> المقارنة العلمية الشاملة</a>
+                    <a href="#sec-references" class="toc-item"><span>6.</span> مصادر ومراجع البحث</a>
+                </div>
+            </section>
+
+            <!-- مقدمة أنيقة -->
+            <section class="section-box" id="sec-intro">
+                <h2>1. مقدمة البحث والأهمية التاريخية</h2>
                 <p>
-                    مثّل العصر العباسي مرحلةً غنيةً بالتنوع المعرفي وتلاقي العلوم والآداب في حواضر مثل بغداد والبصرة ومراكز العلم الأخرى. ويتيح اختيار ثلاثة أعلام متبايني التخصصات — هم <strong>محمد بن موسى الخوارزمي</strong>، و<strong>أبو عثمان عمرو بن بحر الجاحظ</strong>، و<strong>الحسن بن الهيثم</strong> — رؤيةً شاملةً لتكامل البحث الرياضي والفلكي، والبيان الأدبي والملاحظة الطبيعية، والمنهج التجريبي في البصريات والفيزياء.
+                    مثّل العصر العباسي (منذ عام 132 هـ / 750 م فصاعداً) العصر الذهبي للحضارة الإسلامية؛ حيث شهدت حواضر كبرى مثل بغداد والبصرة وسامراء ازدهاراً منقطع النظير. وقد أُسس "بيت الحكمة" ليكون منارة كبرى تجمعت فيها علوم العالم وترجمت علوم اليونان والهنود والفرس وتطويرها بشكل مبتكر.
                 </p>
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <h3>الرياضيات والفلك</h3>
-                        <span>صياغة الجبر والزيجات والجغرافيا</span>
+                <p>
+                    يهدف هذا البحث الأكاديمي إلى تسليط الضوء على إسهامات ثلاثة من أعظم أعلام ذلك العصر: <strong>محمد بن موسى الخوارزمي</strong> في الرياضيات، و<strong>أبو عثمان الجاحظ</strong> في الأدب والملاحظة البيئية، و<strong>الحسن بن الهيثم</strong> في البصريات والمنهج التجريبي.
+                </p>
+            </section>
+
+            <!-- 5. الخط الزمني يوضح العصر العباسي -->
+            <section class="section-box" id="sec-timeline">
+                <h2>2. الخط الزمني لتطور العلوم في العصر العباسي</h2>
+                <p>تتبع أهم المحطات التاريخية والحضارية التي مهدت للازدهار العلمي:</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">132 هـ / 750 م</div>
+                        <div class="timeline-title">قيام الخلافة العباسية واتخاذ بغداد عاصمة</div>
+                        <div class="timeline-desc">بداية الاهتمام بالعلوم وحركة الترجمة وتأسيس حواضر العلم الكبرى.</div>
                     </div>
-                    <div class="stat-box">
-                        <h3>الأدب والملاحظة</h3>
-                        <span>بلاغة النثر ورصد طبائع الكائنات</span>
+                    <div class="timeline-item">
+                        <div class="timeline-year">نحو 170 هـ / 786 م</div>
+                        <div class="timeline-title">تأسيس بيت الحكمة في عهد هارون الرشيد</div>
+                        <div class="timeline-desc">تحول بيت الحكمة إلى أكبر مركز علمي وبحثي وترجمي في العالم القديم.</div>
                     </div>
-                    <div class="stat-box">
-                        <h3>البصريات والمنهج</h3>
-                        <span>الاختبار التجريبي وتحليل الضوء</span>
+                    <div class="timeline-item">
+                        <div class="timeline-year">نحو 210 هـ / 825 م</div>
+                        <div class="timeline-title">ذروة عصر المأمون وتأليف كتب الجبر</div>
+                        <div class="timeline-desc">إنجاز الخوارزمي لكتاب "الجبر والمقابلة" ورسومات خرائط العالم الفلكية.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">القرن الرابع الهجري / العاشر الميلادي</div>
+                        <div class="timeline-title">نضج المنهج التجريبي وتأليف كتاب المناظر</div>
+                        <div class="timeline-desc">إرساء ابن الهيثم لقواعد البصريات الحديثة والشك المنهجي التجريبي.</div>
                     </div>
                 </div>
             </section>
 
+            <!-- 3 & 4. عرض العلماء الثلاثة في بطاقات وصفحات مستقلة مع صور -->
             <section class="controls" id="sec-scholars">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="🔍 ابحث في الأسماء، المناهج، الإنجازات، أو المؤلفات...">
+                    <input type="text" id="searchInput" placeholder="🔍 ابحث في الموسوعة عن عالم، تخصص، كتاب، أو إنجاز...">
                 </div>
                 <div class="filter-buttons" id="filterButtons">
                     <button class="filter-btn active" data-category="all">الكل (3)</button>
@@ -1048,53 +1026,89 @@
                 </div>
             </section>
 
-            <!-- شبكة عرض العلماء -->
             <section class="scholars-grid" id="scholarsGrid"></section>
 
-            <!-- شريط 3D لتطوير الموقع والتواصل معنا -->
-            <section class="dev-3d-section" id="contact3dSection">
-                <div class="dev-3d-ribbon" id="dev3dRibbon">
-                    <div class="dev-3d-content">
-                        <div class="dev-3d-info">
-                            <span class="dev-3d-tag">تطبيق طلابي تفاعلي • 2 ع ت 2</span>
-                            <h2>تطوير التطبيق والتواصل معنا</h2>
-                            <p>
-                                مشروع طلابي من <strong>القسم 2 علوم تجريبية 2</strong> — لأي استفسار أو ملاحظة أو مقترح حول تطوير التطبيق، يمكنك التواصل معنا مباشرة عبر البريد الإلكتروني.
-                            </p>
-                        </div>
-                        <div class="contact-3d-actions">
-                            <a href="mailto:laichimohammed1@gmail.com" class="contact-3d-link email-link">
-                                <span>✉️ البريد الإلكتروني</span>
-                            </a>
-                        </div>
+            <!-- 6. قسم خاص بأهم الاختراعات والاكتشافات -->
+            <section class="section-box" id="sec-discoveries">
+                <h2>4. أبرز الاختراعات والاكتشافات العلمية في العصر العباسي</h2>
+                <p>أسهم علماء العصر العباسي في وضع أسس ابتكارات غيرت وجه البشرية:</p>
+                <div class="discoveries-grid">
+                    <div class="discovery-card">
+                        <h3>علم الجبر والخوارزميات</h3>
+                        <p>ابتكار نظام رياضي متكامل لحل المعادلات الخطية والتربيعية، والذي تقوم عليه اليوم كافة لغات البرمجة الحديثة[cite: 1].</p>
+                    </div>
+                    <div class="discovery-card">
+                        <h3>الغرفة المظلمة (الكاميرا)</h3>
+                        <p>الشرح العلمي الدقيق لمبدأ انعكاس الضوء وتكوين الصورة داخل غرفة مظلمة بواسطة ابن الهيثم، وهو أساس التصوير الفوتوغرافي[cite: 1].</p>
+                    </div>
+                    <div class="discovery-card">
+                        <h3>الملاحظة البيئية والمقارنة</h3>
+                        <p>تقديم الجاحظ لملاحظات مبكرة حول تأثير البيئة وسلاسل الغذاء وتكيف الكائنات الحية مع محيطها[cite: 1].</p>
                     </div>
                 </div>
             </section>
 
-            <!-- خاتمة البحث -->
-            <section class="conclusion" id="sec-conclusion">
-                <h2>خاتمة البحث</h2>
-                <p>
-                    تكشف دراسة أعمال الخوارزمي والجاحظ وابن الهيثم أن النهضة المعرفية في العصر العباسي لم تقتصر على حقل واحد، بل جمعت بين الدقة الرياضية المجرّدة، والقدرة الأدبية على تصوير الواقع والمجتمع والطبيعة، والاعتماد على التجربة والقياس للتحقق من الفرضيات العلمية.
-                </p>
-                <p>
-                    كما يبرز التفاعل بين هذه المسارات كيف أسهمت المؤلفات المنهجية والوصفية والتجريبية في بناء رصيد علمي وأدبي راسخ، تُقرأ نصوصه ومفاهيمه اليوم بوصفها شواهد حية على نضج التفكير المنهجي في ذلك العصر.
-                </p>
+            <!-- 7. مقارنة بين الخوارزمي والجاحظ وابن الهيثم -->
+            <section class="section-box" id="sec-comparison">
+                <h2>5. مقارنة علمية شاملة بين العلماء الثلاثة</h2>
+                <p>يلخص الجدول التحليلي التالي وجوه التكامل والتباين بين الأعلام الثلاثة في المناهج والمؤلفات والإنجازات:</p>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>عالم العصر العباسي</th>
+                                <th>مجال التخصص</th>
+                                <th>المنهج العلمي المُتبع</th>
+                                <th>أبرز المؤلفات والكتب</th>
+                                <th>الإنجاز الخالد والأثر</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>محمد بن موسى الخوارزمي</strong>[cite: 1]</td>
+                                <td>الرياضيات والفلك والجغرافيا</td>
+                                <td>البرهان الهندسي والتحليل المنطقي</td>
+                                <td>الجبر والمقابلة[cite: 1]، صورة الأرض</td>
+                                <td>وضع أسس علم الجبر ومؤسس الخوارزميات[cite: 1]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>أبو عثمان الجاحظ</strong>[cite: 1]</td>
+                                <td>الأدب والنثر وطبائع الكائنات</td>
+                                <td>الملاحظة التجريبية المباشرة والشك النقدي</td>
+                                <td>كتاب الحيوان[cite: 1]، البيان والتبيين</td>
+                                <td>إرساء قواعد النثر الفني ورصد سلوك الكائنات</td>
+                            </tr>
+                            <tr>
+                                <td><strong>الحسن بن الهيثم</strong>[cite: 1]</td>
+                                <td>البصريات والفيزياء الرياضية</td>
+                                <td>المنهج العلمي التجريبي الاستقرائي</td>
+                                <td>كتاب المناظر[cite: 1]، الشكوك على بطليموس</td>
+                                <td>تصحيح نظريات الإبصار واختراع الغرفة المظلمة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-                <div class="developers-box">
-                    <h3>فريق التطوير — القسم: 2 علوم تجريبية 2</h3>
-                    <ul class="developers-list">
-                        <li>لعيشي محمد الامين</li>
-                        <li>بن عيسي سعود</li>
-                        <li>علاف وسيم</li>
-                        <li>صحراوي العيد</li>
-                        <li>سليم</li>
-                    </ul>
+            <!-- 8. مراجع ومصادر البحث في النهاية -->
+            <section class="section-box" id="sec-references">
+                <h2>6. مراجع ومصادر البحث التاريخي</h2>
+                <p>اعتمد هذا البحث الموسوعي على مجموعة من المصادر والمراجع الموثوقة:</p>
+                <ul class="references-list">
+                    <li>1. ابن النديم، أبو الفرج محمد بن إسحاق، <em>الفهرست</em>، دار المعرفة، بيروت[cite: 1].</li>
+                    <li>2. القفطي، جمال الدين أبو الحسن، <em>إخبار العلماء بأخبار الحهكماء</em>، دار الكتب العلمية[cite: 1].</li>
+                    <li>3. سارتر، جورج، <em>تاريخ العلم</em>، ترجمة أحمد فؤاد باشا، الهيئة المصرية العامة للكتاب[cite: 1].</li>
+                    <li>4. دبرون، ألدو، <em>علوم العرب في العصر العباسي وتأثيرها على أوروبا</em>[cite: 1].</li>
+                </ul>
+
+                <div class="developers-box" style="margin-top:2rem; background:var(--bg-parchment); border:1px solid var(--border-color); padding:1.4rem; border-radius:12px; border-right:4px solid var(--secondary-color);">
+                    <h3 style="color:var(--primary-color); font-family:var(--font-kufi); font-size:1.15rem; margin-bottom:0.5rem;">فريق إعداد الموسوعة البحثية — القسم: 2 علوم تجريبية 2</h3>
+                    <p style="font-size:0.98rem; margin:0;">لعيشي محمد الامين • بن عيسي سعود • علاف وسيم • صحراوي العيد • سليم</p>
                 </div>
             </section>
         </div>
 
-        <!-- نافذة التفاصيل المنبثقة مع الفيديو والصور -->
+        <!-- صفحة مستقلة / نافذة عرض تفصيلية لكل عالم مع صوره ومؤلفاته -->
         <div class="modal" id="scholarModal">
             <div class="modal-content">
                 <button class="close-modal" id="closeModal">&times;</button>
@@ -1103,26 +1117,30 @@
         </div>
 
         <footer>
-            <p>القسم: 2 علوم تجريبية 2 | المطور: لعيشي محمد الامين</p>
+            <p>القسم: 2 علوم تجريبية 2 | إشراف الأستاذة الفاضلة | إعداد الطالب: لعيشي محمد الامين</p>
         </footer>
 
-        <!-- شريط التنقل السفلي للتطبيق -->
+        <!-- شريط التنقل السفلي -->
         <nav class="bottom-nav">
-            <button class="nav-item active" onclick="scrollToSection('sec-home', this)">
-                <span class="nav-icon">🏛️</span>
-                <span>الرئيسية</span>
+            <button class="nav-item active" onclick="scrollToSection('sec-cover', this)">
+                <span class="nav-icon">📜</span>
+                <span>الغلاف</span>
+            </button>
+            <button class="nav-item" onclick="scrollToSection('sec-toc', this)">
+                <span class="nav-icon">📑</span>
+                <span>الفهرس</span>
+            </button>
+            <button class="nav-item" onclick="scrollToSection('sec-timeline', this)">
+                <span class="nav-icon">⏳</span>
+                <span>الخط الزمني</span>
             </button>
             <button class="nav-item" onclick="scrollToSection('sec-scholars', this)">
                 <span class="nav-icon">📚</span>
                 <span>العلماء</span>
             </button>
-            <button class="nav-item" onclick="scrollToSection('sec-conclusion', this)">
-                <span class="nav-icon">✒️</span>
-                <span>الخاتمة</span>
-            </button>
-            <button class="nav-item" onclick="scrollToSection('contact3dSection', this)">
-                <span class="nav-icon">👥</span>
-                <span>الفريق</span>
+            <button class="nav-item" onclick="scrollToSection('sec-comparison', this)">
+                <span class="nav-icon">⚖️</span>
+                <span>المقارنة</span>
             </button>
         </nav>
     </div>
@@ -1132,78 +1150,66 @@
             {
                 id: "khwarizmi",
                 name: "محمد بن موسى الخوارزمي",
-                monogram: "جبر",
                 dates: "نحو 164 هـ – 232 هـ / 780 – 850 م",
                 category: "الرياضيات والفلك",
-                theme: "theme-1",
-                caption: "بيت الحكمة – بغداد",
                 imageUrl: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80",
-                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-                summary: "عالم رياضيات وفلك وجغرافيا بارز في بيت الحكمة ببغداد في عهد الخليفة المأمون، واضع علم الجبر كعلم مستقل ومؤسس الخوارزميات.",
+                summary: "عالم رياضيات وفلك وجغرافيا بارز في بيت الحكمة ببغداد في عهد الخليفة المأمون، واضع علم الجبر كعلم مستقل ومؤسس الخوارزميات[cite: 1].",
                 highlights: [
-                    "مؤسس علم الجبر والمقابلة كعلم مستقل عن الحساب.",
-                    "نشر الأرقام الهندية-العربية ونظام الصفر العشري.",
-                    "وضع الزيج السند هند وخريطة العالم في صورة الأرض."
+                    "مؤسس علم الجبر والمقابلة كعلم مستقل عن الحساب[cite: 1].",
+                    "نشر الأرقام الهندية-العربية ونظام الصفر العشري[cite: 1].",
+                    "وضع الزيج السند هند وخريطة العالم في صورة الأرض[cite: 1]."
                 ],
                 biography: "نشأ في إقليم خوارزم وانتقل إلى بغداد حيث لمع نجمه في بيت الحكمة خلال خلافة المأمون العباسي. كلفه المأمون برسم خريطة للعالم وقياس محيط الأرض، فأشرف على فريق من العلماء لإنجاز أدق القياسات الجغرافية والفلكية في عصره.",
                 methodology: "اعتمد الخوارزمي على البرهان الهندسي لتأكيد صحة الحلول الجبرية، وصاغ القواعد الرياضية بلغة واضحة وممنهجة تهدف إلى حل المشكلات العملية في المواريث والتجارة والمساحة.",
                 works: [
-                    "الكتاب المختصر في حساب الجبر والمقابلة.",
-                    "كتاب الجمع والتفريق بحساب الهند.",
-                    "كتاب صورة الأرض (في الجغرافيا الفلكية).",
-                    "الزيج السند هند (جداول فلكية لحركة الكواكب)."
+                    "الكتاب المختصر في حساب الجبر والمقابلة[cite: 1].",
+                    "كتاب الجمع والتفريق بحساب الهند[cite: 1].",
+                    "كتاب صورة الأرض (في الجغرافيا الفلكية)[cite: 1].",
+                    "الزيج السند هند (جداول فلكية لحركة الكواكب)[cite: 1]."
                 ],
                 impact: "اشتُقت من اسمه كلمة (Algorithm / الخوارزمية) التي تقوم عليها علوم الحاسوب الحديثة، كما انتقل مصطلح (Algebra) إلى اللغات العالمية من عنوان كتابه الشهير."
             },
             {
                 id: "jahiz",
                 name: "أبو عثمان عمرو بن بحر الجاحظ",
-                monogram: "📖",
                 dates: "159 هـ – 255 هـ / 776 – 868 م",
                 category: "الأدب والملاحظة الطبيعية",
-                theme: "theme-2",
-                caption: "حاضرة البصرة وبغداد",
                 imageUrl: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=900&q=80",
-                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-                summary: "أحد أعظم أئمة النثر العربي في العصر العباسي، جمع بين البلاغة الأدبية، الموسوعية الفكرية، والملاحظة الدقيقة لطبائع الحيوان والإنسان.",
+                summary: "أحد أعظم أئمة النثر العربي في العصر العباسي، جمع بين البلاغة الأدبية، الموسوعية الفكرية، والملاحظة الدقيقة لطبائع الحيوان والإنسان[cite: 1].",
                 highlights: [
-                    "مؤلف موسوعة (الحيوان) التي جمعت الأدب بعلم الطبائع.",
-                    "أرسى قواعد البيان العربي والنقد الأدبي المنهجي.",
-                    "استخدم الشك المنهجي والتجربة للتحقق من الروايات."
+                    "مؤلف موسوعة (الحيوان) التي جمعت الأدب بعلم الطبائع[cite: 1].",
+                    "أرسى قواعد البيان العربي والنقد الأدبي المنهجي[cite: 1].",
+                    "استخدم الشك المنهجي والتجربة للتحقق من الروايات[cite: 1]."
                 ],
                 biography: "وُلد ونشأ في البصرة التي كانت ملتقى الثقافات واللغات والعلماء، وتلقى العلم على يد كبار اللغويين والمعتزلة، ثم انتقل إلى بغداد وسامراء. عُرف بشغفه الشديد بالقراءة والبحث حتى قيل إنه كان يستأجر دكاكين الوراقين للمبيت فيها والمطالعة.",
                 methodology: "تميّز الجاحظ بمنهج نقدي يقوم على عدم التسليم بالخرافات الشائعة إلا بعد الفحص والملاحظة المباشرة، ودمج الفكاهة الراقية بالتحليل الاجتماعي والنفسي الدقيق.",
                 works: [
-                    "كتاب الحيوان (موسوعة في سبعة أجزاء).",
-                    "البيان والتبيين (في البلاغة والخطابة والنقد).",
-                    "البخلاء (تحليل أدبي واجتماعي لنماذج إنسانية).",
-                    "المحاسن والأضداد."
+                    "كتاب الحيوان (موسوعة في سبعة أجزاء)[cite: 1].",
+                    "البيان والتبيين (في البلاغة والخطابة والنقد)[cite: 1].",
+                    "البخلاء (تحليل أدبي واجتماعي لنماذج إنسانية)[cite: 1].",
+                    "المحاسن والأضداد[cite: 1]."
                 ],
                 impact: "أثرى المكتبة العربية بأسلوب نثري فريد، وقدم ملاحظات مبكرة حول تكيف الكائنات الحية مع بيئاتها وسلاسل الغذاء وتأثير المناخ."
             },
             {
                 id: "ibn-al-haytham",
                 name: "الحسن بن الهيثم",
-                monogram: "👁️",
                 dates: "354 هـ – 430 هـ / 965 – 1040 م",
                 category: "الفيزياء والبصريات",
-                theme: "theme-3",
-                caption: "رائد المنهج التجريبي",
                 imageUrl: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
-                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-                summary: "عالم موسوعي في البصريات والرياضيات والهندسة، صحّح نظريات الإبصار القديمة وأثبت أن الرؤية تحدث بانعكاس الضوء من الأجسام إلى العين.",
+                summary: "عالم موسوعي في البصريات والرياضيات والهندسة، صحّح نظريات الإبصار القديمة وأثبت أن الرؤية تحدث بانعكاس الضوء من الأجسام إلى العين[cite: 1].",
                 highlights: [
-                    "مؤلف كتاب (المناظر) المرجع الأساسي لعلم البصريات.",
-                    "أرسى قواعد المنهج العلمي التجريبي القائم على الاستقراء.",
-                    "شرح آلية عمل الغرفة المظلمة (الكاميرا) وتشريح العين."
+                    "مؤلف كتاب (المناظر) المرجع الأساسي لعلم البصريات[cite: 1].",
+                    "أرسى قواعد المنهج العلمي التجريبي القائم على الاستقراء[cite: 1].",
+                    "شرح آلية عمل الغرفة المظلمة (الكاميرا) وتشريح العين[cite: 1]."
                 ],
                 biography: "وُلد في البصرة في العصر العباسي وتلقى علومه فيها وفي بغداد، ثم انتقل إلى القاهرة حيث تفرغ للبحث العلمي والتأليف في البصريات والرياضيات والفلك والهندسة.",
                 methodology: "يُعد ابن الهيثم رائد المنهج التجريبي الحديث؛ إذ اشترط إخضاع الفرضيات للتجربة العملية القابلة للتكرار، والجمع بين الاستقراء والقياس الرياضي والابتعاد عن الهوى.",
                 works: [
-                    "كتاب المناظر (في علم البصريات والضوء).",
-                    "مقالة في الضوء.",
-                    "الشكوك على بطليموس (نقد علمي للنماذج الفلكية القديمة).",
-                    "رسالة في المكان."
+                    "كتاب المناظر (في علم البصريات والضوء)[cite: 1].",
+                    "مقالة في الضوء[cite: 1].",
+                    "الشكوك على بطليموس (نقد علمي للنماذج الفلكية القديمة)[cite: 1].",
+                    "رسالة في المكان[cite: 1]."
                 ],
                 impact: "تُرجم كتابه (المناظر) إلى اللاتينية وكان الأساس الذي بنى عليه علماء أوروبا أمثال روجر بيكون وكيبلر أبحاثهم في الضوء والعدسات."
             }
@@ -1220,8 +1226,24 @@
         const togglePassBtn = document.getElementById('togglePassBtn');
         const loginError = document.getElementById('loginError');
         const logoutBtn = document.getElementById('logoutBtn');
-        const activeUserBadge = document.getElementById('activeUserBadge');
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
         const readingProgress = document.getElementById('readingProgress');
+
+        // نظام الوضع الليلي والنهاري
+        const htmlRoot = document.documentElement;
+        function setTheme(theme) {
+            htmlRoot.setAttribute('data-theme', theme);
+            localStorage.setItem('abbasid_theme', theme);
+            themeToggleBtn.textContent = theme === 'dark' ? '☀️ الوضع الفاتح' : '🌙 الوضع الليلي';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlRoot.getAttribute('data-theme');
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        const savedTheme = localStorage.getItem('abbasid_theme') || 'light';
+        setTheme(savedTheme);
 
         togglePassBtn.addEventListener('click', () => {
             const isPassword = passwordInput.type === 'password';
@@ -1229,12 +1251,32 @@
             togglePassBtn.textContent = isPassword ? 'إخفاء' : 'إظهار';
         });
 
+        // رسائل الخطأ الدقيقة لتسجيل الدخول
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = usernameInput.value.trim();
+            const pass = passwordInput.value.trim();
+
+            if (user !== VALID_USERNAME && pass !== VALID_PASSWORD) {
+                loginError.textContent = "اسم المستخدم وكلمة المرور غير صحيحة.";
+                loginError.style.display = 'block';
+            } else if (user !== VALID_USERNAME) {
+                loginError.textContent = "خطأ في اسم المستخدم المدخل.";
+                loginError.style.display = 'block';
+            } else if (pass !== VALID_PASSWORD) {
+                loginError.textContent = "كلمة المرور غير صحيحة.";
+                loginError.style.display = 'block';
+            } else {
+                loginError.style.display = 'none';
+                unlockApp(user);
+            }
+        });
+
         function unlockApp(usernameLabel) {
             loginScreen.style.display = 'none';
             appContent.style.display = 'block';
             sessionStorage.setItem('abbasid_auth', 'true');
             sessionStorage.setItem('abbasid_user', usernameLabel || VALID_USERNAME);
-            activeUserBadge.textContent = `المستخدم: ${sessionStorage.getItem('abbasid_user')}`;
             renderScholars(scholarsData);
         }
 
@@ -1254,19 +1296,6 @@
             unlockApp(sessionStorage.getItem('abbasid_user'));
         }
 
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const user = usernameInput.value.trim();
-            const pass = passwordInput.value.trim();
-
-            if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
-                loginError.style.display = 'none';
-                unlockApp(user);
-            } else {
-                loginError.style.display = 'block';
-            }
-        });
-
         logoutBtn.addEventListener('click', lockApp);
 
         const scholarsGrid = document.getElementById('scholarsGrid');
@@ -1277,7 +1306,7 @@
         function renderScholars(list) {
             scholarsGrid.innerHTML = '';
             if (list.length === 0) {
-                scholarsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 2rem; font-weight:bold; color: var(--primary-color);">لا توجد نتائج مطابقة لبحثك.</p>`;
+                scholarsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 2rem; font-weight:bold;">لا توجد نتائج مطابقة لبحثك[cite: 1].</p>`;
                 return;
             }
 
@@ -1287,10 +1316,7 @@
                 card.innerHTML = `
                     <div>
                         <div class="scholar-media">
-                            <div class="scholar-art-placeholder ${scholar.theme}">
-                                <div class="scholar-monogram">${scholar.monogram}</div>
-                                <span class="scholar-art-caption">${scholar.caption}</span>
-                            </div>
+                            <img src="${scholar.imageUrl}" alt="${scholar.name}">
                         </div>
                         <div class="scholar-body">
                             <div>
@@ -1302,7 +1328,7 @@
                                     ${scholar.highlights.map(h => `<li>• ${h}</li>`).join('')}
                                 </ul>
                             </div>
-                            <button class="details-btn" onclick="openScholarModal('${scholar.id}')">🎬 قراءة البحث ومشاهدة الفيديو</button>
+                            <button class="details-btn" onclick="openScholarModal('${scholar.id}')">📖 صفحة العالم المستقلة مع الصور والمؤلفات</button>
                         </div>
                     </div>
                 `;
@@ -1340,31 +1366,23 @@
             if (!s) return;
 
             modalBody.innerHTML = `
-                <!-- مشغل الفيديو المضمن والجاهز للتشغيل -->
-                <div class="modal-video-box">
-                    <video controls autoplay muted>
-                        <source src="${s.videoUrl}" type="video/mp4">
-                        متصفحك لا يدعم تشغيل الفيديو.
-                    </video>
-                </div>
-                <!-- الصورة التوضيحية -->
                 <div class="modal-banner">
                     <img src="${s.imageUrl}" alt="${s.name}">
                 </div>
                 <h2>${s.name}</h2>
                 <div class="modal-meta">${s.category} | ${s.dates}</div>
-                <div class="modal-tools">
-                    <button class="copy-btn" onclick="copyScholarSummary('${s.id}')">📋 نسخ ملخص العالم</button>
+                <div style="margin-bottom:1rem;">
+                    <button class="icon-btn" onclick="copyScholarSummary('${s.id}')">📋 نسخ ملخص العالم</button>
                 </div>
-                <h4>السيرة والنشأة</h4>
+                <h4>السيرة والنشأة التاريخية</h4>
                 <p>${s.biography}</p>
-                <h4>المنهج العلمي</h4>
+                <h4>المنهج العلمي المتبع</h4>
                 <p>${s.methodology}</p>
-                <h4>أبرز المؤلفات</h4>
+                <h4>أبرز المؤلفات والكتب</h4>
                 <ul>
                     ${s.works.map(w => `<li>${w}</li>`).join('')}
                 </ul>
-                <h4>الأثر العلمي والحضاري</h4>
+                <h4>الأثر العلمي والحضاري في العالم</h4>
                 <p>${s.impact}</p>
             `;
             scholarModal.style.display = 'flex';
@@ -1392,12 +1410,12 @@
             if (!s) return;
             const text = `${s.name} (${s.dates})\nالتخصص: ${s.category}\n${s.summary}\nأبرز المؤلفات: ${s.works.join('، ')}`;
             navigator.clipboard.writeText(text).then(() => {
-                showToast('تم نسخ بطاقة العالم إلى الحافظة ✓');
+                showToast('تم نسخ ملف العالم إلى الحافظة ✓');
             });
         }
 
         function scrollToSection(sectionId, btnEl) {
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
             if (btnEl) btnEl.classList.add('active');
             const target = document.getElementById(sectionId);
             if (target) {
