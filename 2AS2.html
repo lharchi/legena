@@ -2,28 +2,38 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بحث تفصيلي عن علماء العصر العباسي | القسم: 2 علمي 2</title>
-    <!-- استيراد خط تجوال العربي من جوجل -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#162e4d">
+    <title>بحث حول علماء العصر العباسي | القسم: 2 علوم تجريبية 2</title>
+    
+    <!-- استيراد الخطوط العربية التراثية والحديثة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #1e3a5f; /* أزرق ملكي إسلامي */
-            --secondary-color: #c59b27; /* ذهبي تراثي */
-            --accent-teal: #0f766e;
-            --bg-color: #f4f7fb;
-            --card-bg: #ffffff;
+            --primary-color: #162e4d; /* أزرق ملكي عباسي داكن */
+            --primary-light: #234775;
+            --secondary-color: #c59b27; /* ذهبي مخطوطات وتراثي */
+            --secondary-light: #e5c158;
+            --bg-parchment: #f7f3e8; /* لون ورق المخطوطات الدافئ */
+            --card-bg: rgba(255, 255, 255, 0.95);
             --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --border-radius: 14px;
-            --shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+            --text-muted: #5a6778;
+            --border-radius: 16px;
+            --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            --font-main: 'Tajawal', sans-serif;
+            --font-heritage: 'Amiri', serif;
+            --font-kufi: 'Reem Kufi', sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Tajawal', sans-serif;
+            font-family: var(--font-main);
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
@@ -31,9 +41,28 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-parchment);
+            /* خلفية زخرفة هندسية إسلامية مستوحاة من العصر العباسي */
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23c59b27' stroke-width='0.7' stroke-opacity='0.18'%3E%3Cpath d='M40 0l11.7 28.3L80 40 51.7 51.7 40 80 28.3 51.7 0 40l28.3-11.7z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             color: var(--text-dark);
-            line-height: 1.75;
+            line-height: 1.8;
+            padding-bottom: 75px; /* مساحة لشريط التطبيق السفلي */
+        }
+
+        /* شريط الحروف الأبجدية الزخرفي التراثي */
+        .abjad-ribbon {
+            background: rgba(22, 46, 77, 0.95);
+            border-bottom: 3px solid var(--secondary-color);
+            color: #f8e39c;
+            font-family: var(--font-heritage);
+            font-size: 1.15rem;
+            padding: 0.4rem 0;
+            text-align: center;
+            letter-spacing: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            user-select: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         /* شريط تقدم القراءة */
@@ -44,7 +73,7 @@
             width: 0%;
             height: 4px;
             background: linear-gradient(90deg, var(--secondary-color), #f59e0b, #2dd4bf);
-            z-index: 2000;
+            z-index: 2500;
             transition: width 0.1s linear;
         }
 
@@ -55,24 +84,43 @@
             justify-content: center;
             align-items: center;
             padding: 1.5rem;
-            background: radial-gradient(circle at top right, #284b78, #112238 75%);
+            background: radial-gradient(circle at top right, #234775, #0e1e33 80%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-screen::before {
+            content: "أ ب ج د هـ و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث خ ذ ض ظ غ";
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            right: -10%;
+            font-family: var(--font-heritage);
+            font-size: 3.5rem;
+            color: rgba(197, 155, 39, 0.06);
+            text-align: center;
+            pointer-events: none;
+            transform: rotate(-6deg);
         }
 
         .login-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
             width: 100%;
             max-width: 440px;
             border-radius: var(--border-radius);
-            padding: 2.2rem 2rem;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+            padding: 2.3rem 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
             border-top: 5px solid var(--secondary-color);
+            position: relative;
+            z-index: 2;
         }
 
         .login-badge {
             display: inline-block;
             background: rgba(197, 155, 39, 0.16);
-            color: #967213;
-            padding: 0.25rem 0.85rem;
+            color: #8a6608;
+            padding: 0.25rem 0.9rem;
             border-radius: 20px;
             font-size: 0.88rem;
             font-weight: 700;
@@ -81,8 +129,8 @@
 
         .login-card h1 {
             color: var(--primary-color);
-            font-size: 1.65rem;
-            font-weight: 800;
+            font-family: var(--font-kufi);
+            font-size: 1.7rem;
             margin-bottom: 0.4rem;
         }
 
@@ -112,21 +160,21 @@
 
         .form-group input {
             width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
             font-size: 1rem;
             outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .password-wrapper input {
-            padding-left: 3rem;
+            padding-left: 3.5rem;
         }
 
         .form-group input:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+            box-shadow: 0 0 0 3px rgba(22, 46, 77, 0.12);
         }
 
         .toggle-pass-btn {
@@ -134,29 +182,29 @@
             left: 0.75rem;
             background: none;
             border: none;
-            color: var(--text-muted);
+            color: var(--primary-color);
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 700;
         }
 
         .login-btn {
             width: 100%;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             color: #fff;
             border: none;
-            padding: 0.82rem 1rem;
-            border-radius: 8px;
+            padding: 0.88rem 1rem;
+            border-radius: 10px;
             font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background 0.2s, transform 0.15s;
-            margin-top: 0.3rem;
+            transition: transform 0.15s, box-shadow 0.2s;
+            margin-top: 0.4rem;
+            box-shadow: 0 6px 15px rgba(22, 46, 77, 0.25);
         }
 
         .login-btn:hover {
-            background: #142842;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .login-error {
@@ -171,41 +219,102 @@
             text-align: center;
         }
 
-        .login-hint {
-            margin-top: 1.2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
-            font-size: 0.86rem;
-            color: #64748b;
-            text-align: center;
-        }
-
         /* المحتوى الرئيسي للتطبيق */
         .app-content {
             display: none;
+            animation: appFadeIn 0.4s ease;
+        }
+
+        @keyframes appFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* شريط التطبيق العلوي */
+        .app-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: rgba(22, 46, 77, 0.95);
+            backdrop-filter: blur(12px);
+            color: #fff;
+            padding: 0.7rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .app-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-kufi);
+            font-size: 1.15rem;
+            color: #f8e39c;
+        }
+
+        .app-top-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .icon-btn.gold {
+            background: var(--secondary-color);
+            color: #112238;
+            border: none;
         }
 
         /* الترويسة */
         header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #112238 100%);
+            background: linear-gradient(135deg, #162e4d 0%, #0d1d33 100%);
             color: #fff;
-            padding: 3rem 1.5rem 2.7rem;
+            padding: 2.8rem 1.5rem 2.4rem;
             text-align: center;
             border-bottom: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
+            font-family: var(--font-kufi);
             font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             color: #fff;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         header p {
-            font-size: 1.1rem;
-            color: #e2e8f0;
+            font-family: var(--font-heritage);
+            font-size: 1.25rem;
+            color: #f1e6c8;
             max-width: 780px;
             margin: 0 auto 1.2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .header-badges {
@@ -213,7 +322,8 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 0.6rem;
-            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .class-pill, .user-pill {
@@ -221,11 +331,11 @@
             padding: 0.35rem 1rem;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
         }
 
         .class-pill {
-            background: rgba(197, 155, 39, 0.2);
+            background: rgba(197, 155, 39, 0.22);
             border: 1px solid var(--secondary-color);
             color: #f8e39c;
         }
@@ -236,49 +346,11 @@
             color: #e2e8f0;
         }
 
-        .header-actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-
-        .print-btn, .logout-btn {
-            border: none;
-            padding: 0.65rem 1.4rem;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .print-btn {
-            background-color: var(--secondary-color);
-            color: #112238;
-        }
-
-        .print-btn:hover {
-            background-color: #d8ad34;
-            transform: translateY(-2px);
-        }
-
-        .logout-btn {
-            background-color: rgba(255, 255, 255, 0.14);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.35);
-        }
-
-        .logout-btn:hover {
-            background-color: rgba(255, 255, 255, 0.24);
-            transform: translateY(-2px);
-        }
-
         /* الحاوية الرئيسية */
         .container {
             max-width: 1180px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 1.8rem 1.2rem;
         }
 
         /* مقدمة البحث */
@@ -287,14 +359,22 @@
             padding: 2rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            margin-bottom: 2.2rem;
+            margin-bottom: 2rem;
             border-right: 5px solid var(--secondary-color);
+            border-top: 1px solid rgba(197, 155, 39, 0.25);
         }
 
         .intro-section h2 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.6rem;
+            font-family: var(--font-kufi);
+            margin-bottom: 0.8rem;
+            font-size: 1.65rem;
+        }
+
+        .intro-section p {
+            font-family: var(--font-heritage);
+            font-size: 1.2rem;
+            color: #2b384a;
         }
 
         .stats-grid {
@@ -305,17 +385,23 @@
         }
 
         .stat-box {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 1rem;
-            border-radius: 10px;
+            background: #fcfaf4;
+            border: 1px solid rgba(197, 155, 39, 0.35);
+            padding: 1.1rem;
+            border-radius: 12px;
             text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-3px);
         }
 
         .stat-box h3 {
-            color: var(--secondary-color);
-            font-size: 1.45rem;
-            font-weight: 800;
+            color: #9e7814;
+            font-family: var(--font-kufi);
+            font-size: 1.35rem;
+            margin-bottom: 0.25rem;
         }
 
         /* شريط البحث والتصفية */
@@ -325,30 +411,32 @@
             gap: 1rem;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             background: var(--card-bg);
-            padding: 1.2rem;
+            padding: 1.1rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
+            border: 1px solid rgba(197, 155, 39, 0.25);
         }
 
         .search-box {
             flex: 1;
-            min-width: 260px;
+            min-width: 250px;
         }
 
         .search-box input {
             width: 100%;
             padding: 0.75rem 1rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.98rem;
             outline: none;
+            background: #fdfbf7;
             transition: border-color 0.2s;
         }
 
         .search-box input:focus {
-            border-color: var(--primary-color);
+            border-color: var(--secondary-color);
         }
 
         .filter-buttons {
@@ -358,25 +446,26 @@
         }
 
         .filter-btn {
-            background: #e2e8f0;
+            background: #efeae0;
             color: var(--text-dark);
             border: none;
-            padding: 0.6rem 1.1rem;
-            border-radius: 8px;
+            padding: 0.55rem 1rem;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.9rem;
             transition: all 0.2s;
         }
 
         .filter-btn.active, .filter-btn:hover {
             background: var(--primary-color);
-            color: #fff;
+            color: #f8e39c;
         }
 
         /* شبكة بطاقات العلماء */
         .scholars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.6rem;
         }
 
@@ -389,30 +478,23 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 1px solid #e2e8f0;
+            border: 1px solid rgba(197, 155, 39, 0.3);
         }
 
         .scholar-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
         }
 
-        /* إطار صورة العالم */
+        /* إطار صورة العالم أو التراث */
         .scholar-media {
             position: relative;
-            height: 195px;
-            background: linear-gradient(135deg, #1e3a5f, #0f172a);
+            height: 185px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-        }
-
-        .scholar-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            border-bottom: 3px solid var(--secondary-color);
         }
 
         .scholar-art-placeholder {
@@ -426,37 +508,50 @@
             color: #fff;
             padding: 1rem;
             text-align: center;
+            position: relative;
+        }
+
+        .scholar-art-placeholder::before {
+            content: "أ ب ج د هـ و ز ح ط ي";
+            position: absolute;
+            bottom: 8px;
+            font-family: var(--font-heritage);
+            font-size: 0.9rem;
+            opacity: 0.25;
+            letter-spacing: 5px;
         }
 
         .scholar-art-placeholder.theme-1 {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2b5876 100%);
+            background: linear-gradient(135deg, #162e4d 0%, #264e80 100%);
         }
 
         .scholar-art-placeholder.theme-2 {
-            background: linear-gradient(135deg, #5c3a21 0%, #9c6615 100%);
+            background: linear-gradient(135deg, #5c3a21 0%, #8f5c14 100%);
         }
 
         .scholar-art-placeholder.theme-3 {
-            background: linear-gradient(135deg, #0f4c5c 0%, #1b263b 100%);
+            background: linear-gradient(135deg, #0d4654 0%, #1a2d42 100%);
         }
 
         .scholar-monogram {
-            font-size: 2rem;
-            font-weight: 800;
-            width: 68px;
-            height: 68px;
+            font-family: var(--font-kufi);
+            font-size: 1.9rem;
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            background: rgba(197, 155, 39, 0.2);
+            border: 2px solid var(--secondary-light);
+            color: #f8e39c;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .scholar-art-caption {
-            font-size: 0.85rem;
-            opacity: 0.92;
-            font-weight: 500;
+            font-family: var(--font-heritage);
+            font-size: 1rem;
+            color: #f8e39c;
         }
 
         .scholar-body {
@@ -469,9 +564,9 @@
 
         .badge {
             display: inline-block;
-            background: rgba(197, 155, 39, 0.15);
-            color: #967213;
-            padding: 0.25rem 0.75rem;
+            background: rgba(197, 155, 39, 0.16);
+            color: #8a6608;
+            padding: 0.25rem 0.8rem;
             border-radius: 20px;
             font-size: 0.84rem;
             font-weight: 700;
@@ -481,7 +576,8 @@
 
         .scholar-card h3 {
             color: var(--primary-color);
-            font-size: 1.38rem;
+            font-family: var(--font-kufi);
+            font-size: 1.45rem;
             margin-bottom: 0.25rem;
         }
 
@@ -493,19 +589,20 @@
         }
 
         .scholar-card p {
-            font-size: 0.95rem;
+            font-family: var(--font-heritage);
+            font-size: 1.12rem;
             margin-bottom: 0.9rem;
-            color: #334155;
+            color: #2c3a4b;
         }
 
         .card-highlights {
             list-style: none;
-            background: #f8fafc;
+            background: #fcfaf4;
             border-right: 3px solid var(--secondary-color);
             border-radius: 8px;
             padding: 0.8rem 1rem;
             margin-bottom: 1.2rem;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: #475569;
         }
 
@@ -513,25 +610,22 @@
             margin-bottom: 0.4rem;
         }
 
-        .card-highlights li:last-child {
-            margin-bottom: 0;
-        }
-
         .details-btn {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 0.55rem 1rem;
-            border-radius: 8px;
+            background: var(--primary-color);
+            color: #f8e39c;
+            border: none;
+            padding: 0.65rem 1rem;
+            border-radius: 10px;
             font-weight: 700;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.2s;
             width: 100%;
         }
 
         .details-btn:hover {
-            background: var(--primary-color);
-            color: #fff;
+            background: var(--primary-light);
+            transform: translateY(-2px);
         }
 
         /* شريط 3D لتطوير الموقع والتواصل معنا */
@@ -541,7 +635,7 @@
         }
 
         .dev-3d-ribbon {
-            background: linear-gradient(125deg, #102036 0%, #1e3a5f 55%, #274973 100%);
+            background: linear-gradient(125deg, #0e1e33 0%, #162e4d 55%, #234775 100%);
             color: #fff;
             border-radius: 16px;
             padding: 1.8rem 2rem;
@@ -552,14 +646,6 @@
             transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
             position: relative;
             overflow: hidden;
-        }
-
-        .dev-3d-ribbon::before {
-            content: "";
-            position: absolute;
-            inset: -40% -20%;
-            background: radial-gradient(circle at top left, rgba(197, 155, 39, 0.22), transparent 55%);
-            pointer-events: none;
         }
 
         .dev-3d-content {
@@ -582,13 +668,12 @@
             border-radius: 999px;
             font-size: 0.82rem;
             font-weight: 800;
-            letter-spacing: 0.5px;
             margin-bottom: 0.5rem;
         }
 
         .dev-3d-info h2 {
-            font-size: 1.45rem;
-            font-weight: 800;
+            font-family: var(--font-kufi);
+            font-size: 1.5rem;
             margin-bottom: 0.35rem;
             color: #fff;
         }
@@ -615,136 +700,171 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 0.94rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-
-        .contact-3d-link.insta-link {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: #112238;
-            box-shadow: 0 10px 22px rgba(217, 119, 6, 0.35);
+            transition: transform 0.2s ease;
         }
 
         .contact-3d-link.email-link {
-            background: rgba(255, 255, 255, 0.14);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.32);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+            background: var(--secondary-color);
+            color: #112238;
+            box-shadow: 0 10px 22px rgba(197, 155, 39, 0.3);
         }
 
         .contact-3d-link:hover {
-            transform: translateY(-3px) scale(1.02);
+            transform: translateY(-3px);
         }
 
-        .contact-3d-link.email-link:hover {
-            background: rgba(255, 255, 255, 0.24);
+        /* الخاتمة */
+        .conclusion {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 2.2rem;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .conclusion h2 {
+            color: var(--primary-color);
+            font-family: var(--font-kufi);
+            margin-bottom: 1rem;
+        }
+
+        .conclusion p {
+            font-family: var(--font-heritage);
+            font-size: 1.18rem;
+            margin-bottom: 0.9rem;
+            color: #2b384a;
+        }
+
+        .developers-box {
+            background: #fcfaf4;
+            border: 1px solid rgba(197, 155, 39, 0.35);
+            border-radius: 12px;
+            padding: 1.2rem 1.4rem;
+            border-right: 4px solid var(--secondary-color);
+            margin-top: 1.2rem;
+        }
+
+        .developers-box h3 {
+            color: var(--primary-color);
+            font-family: var(--font-kufi);
+            font-size: 1.15rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .developers-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            list-style: none;
+        }
+
+        .developers-list li {
+            background: #fff;
+            border: 1px solid rgba(197, 155, 39, 0.4);
+            color: var(--primary-color);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.93rem;
         }
 
         /* النافذة المنبثقة (Modal) */
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.65);
-            z-index: 1000;
+            inset: 0;
+            background: rgba(13, 29, 51, 0.72);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
             justify-content: center;
             align-items: center;
             padding: 1rem;
         }
 
         .modal-content {
-            background: #fff;
+            background: #fdfbf7;
             max-width: 760px;
             width: 100%;
-            border-radius: var(--border-radius);
-            padding: 2.2rem;
+            border-radius: 18px;
+            padding: 2rem;
             position: relative;
-            max-height: 90vh;
+            max-height: 88vh;
             overflow-y: auto;
-            animation: fadeIn 0.25s ease;
+            border-top: 5px solid var(--secondary-color);
+            animation: slideUp 0.28s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.96); }
-            to { opacity: 1; transform: scale(1); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .close-modal {
             position: absolute;
-            top: 1.2rem;
-            left: 1.5rem;
-            font-size: 1.8rem;
+            top: 1rem;
+            left: 1.2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: var(--text-muted);
-            background: none;
+            color: var(--primary-color);
+            background: #efeae0;
             border: none;
-        }
-
-        .modal-hero {
-            margin-bottom: 1.2rem;
-            border-radius: 10px;
-            overflow: hidden;
-            max-height: 220px;
-        }
-
-        .modal-hero img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-body h2 {
             color: var(--primary-color);
+            font-family: var(--font-kufi);
             margin-bottom: 0.35rem;
-            font-size: 1.65rem;
+            font-size: 1.7rem;
         }
 
         .modal-meta {
-            color: #64748b;
+            color: #8a6608;
+            font-weight: 700;
             font-size: 0.95rem;
             margin-bottom: 1rem;
             padding-bottom: 0.8rem;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid rgba(197, 155, 39, 0.3);
         }
 
         .modal-tools {
             display: flex;
             flex-wrap: wrap;
             gap: 0.6rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .copy-btn {
-            background: #f1f5f9;
-            color: var(--primary-color);
-            border: 1px solid #cbd5e1;
-            padding: 0.42rem 0.85rem;
+            background: var(--primary-color);
+            color: #f8e39c;
+            border: none;
+            padding: 0.5rem 1rem;
             border-radius: 8px;
             font-size: 0.88rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .copy-btn:hover {
-            background: #e2e8f0;
         }
 
         .modal-body h4 {
             color: var(--primary-color);
+            font-family: var(--font-kufi);
             margin: 1.25rem 0 0.5rem;
-            font-size: 1.12rem;
+            font-size: 1.18rem;
             border-right: 3px solid var(--secondary-color);
             padding-right: 0.6rem;
         }
 
         .modal-body p {
-            color: #334155;
+            font-family: var(--font-heritage);
+            color: #2b384a;
             margin-bottom: 0.75rem;
-            font-size: 0.98rem;
+            font-size: 1.15rem;
         }
 
         .modal-body ul {
@@ -757,69 +877,91 @@
             color: #334155;
         }
 
-        /* الخاتمة */
-        .conclusion {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            margin-top: 2.2rem;
-        }
-
-        .conclusion h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .conclusion p {
-            margin-bottom: 0.9rem;
-            color: #334155;
-        }
-
-        .developers-box {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 1.2rem 1.4rem;
-            border-right: 4px solid var(--primary-color);
-            margin-top: 1.2rem;
-        }
-
-        .developers-box h3 {
-            color: var(--primary-color);
-            font-size: 1.05rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .developers-list {
+        /* شريط التنقل السفلي للتطبيق */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 66px;
+            background: rgba(22, 46, 77, 0.97);
+            backdrop-filter: blur(12px);
+            border-top: 2px solid var(--secondary-color);
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            list-style: none;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1500;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
         }
 
-        .developers-list li {
-            background: #fff;
-            border: 1px solid #cbd5e1;
-            color: var(--text-dark);
-            padding: 0.4rem 0.85rem;
-            border-radius: 8px;
+        .nav-item {
+            background: none;
+            border: none;
+            color: #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            font-size: 0.93rem;
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+            transition: color 0.2s, transform 0.15s;
+        }
+
+        .nav-item span.nav-icon {
+            font-size: 1.25rem;
+        }
+
+        .nav-item.active, .nav-item:hover {
+            color: #f8e39c;
+            transform: translateY(-2px);
+        }
+
+        /* إشعار منبثق صغير */
+        .app-toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #112238;
+            color: #f8e39c;
+            border: 1px solid var(--secondary-color);
+            padding: 0.65rem 1.3rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 3000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        .app-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         footer {
             text-align: center;
             padding: 1.5rem;
-            background: #112238;
+            background: #0d1d33;
             color: #cbd5e1;
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             font-size: 0.9rem;
+            border-top: 2px solid var(--secondary-color);
         }
 
         /* تنسيق الطباعة */
         @media print {
-            .controls, .details-btn, .print-btn, .logout-btn, footer, .login-screen, .reading-progress, .modal-tools, .dev-3d-section {
+            body {
+                background: #fff !important;
+                padding-bottom: 0 !important;
+            }
+            .controls, .details-btn, .app-topbar, .bottom-nav, footer, .login-screen, .reading-progress, .modal-tools, .dev-3d-section, .abjad-ribbon {
                 display: none !important;
             }
             .app-content {
@@ -846,13 +988,14 @@
 <body>
 
     <div class="reading-progress" id="readingProgress"></div>
+    <div class="app-toast" id="appToast">تم نسخ النص بنجاح</div>
 
     <!-- شاشة تسجيل الدخول -->
     <div class="login-screen" id="loginScreen">
         <div class="login-card">
-            <span class="login-badge">القسم: 2 علمي 2</span>
-            <h1>تسجيل الدخول إلى البحث</h1>
-            <p>يرجى إدخال اسم المستخدم وكلمة المرور للوصول إلى محتوى البحث حول علماء العصر العباسي.</p>
+            <span class="login-badge">القسم: 2 علوم تجريبية 2</span>
+            <h1>بحث حول علماء العصر العباسي، </h1>
+            <p>يرجى إدخال اسم المستخدم وكلمة المرور للدخول إلى التطبيق البحثي التفاعلي.</p>
 
             <form id="loginForm">
                 <div class="form-group">
@@ -868,33 +1011,43 @@
                     </div>
                 </div>
 
-                <button type="submit" class="login-btn">دخول</button>
+                <button type="submit" class="login-btn">دخول إلى التطبيق</button>
                 <div class="login-error" id="loginError">اسم المستخدم أو كلمة المرور غير صحيحة.</div>
             </form>
-
-           
-            </div>
         </div>
     </div>
 
-    <!-- محتوى البحث (يظهر فقط بعد تسجيل الدخول) -->
+    <!-- محتوى التطبيق -->
     <div class="app-content" id="appContent">
-        <header>
+        <!-- شريط التطبيق العلوي -->
+        <nav class="app-topbar">
+            <div class="app-brand">
+                <span>📜</span>
+                <span>موسوعة العصر العباسي</span>
+            </div>
+            <div class="app-top-actions">
+                <button class="icon-btn gold" onclick="window.print()">🖨️ طباعة / PDF</button>
+                <button class="icon-btn" id="logoutBtn">🔒 خروج</button>
+            </div>
+        </nav>
+
+        <!-- شريط الحروف الأبجدية التراثي العباسي -->
+        <div class="abjad-ribbon">
+            أ ب ج د هـ و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث خ ذ ض ظ غ • بيت الحكمة • بغداد
+        </div>
+
+        <header id="sec-home">
             <div class="header-badges">
-                <span class="class-pill">القسم: 2 علمي 2</span>
+                <span class="class-pill">القسم: 2 علوم تجريبية 2</span>
                 <span class="user-pill" id="activeUserBadge">المستخدم: admin</span>
             </div>
-            <h1>بحث تفصيلي في علماء العصر العباسي</h1>
+            <h1>بحث حول علماء العصر العباسي</h1>
             <p>دراسة موسّعة للخوارزمي والجاحظ وابن الهيثم: السيرة والمنهج، أبرز الإنجازات، المؤلفات، والأثر المعرفي</p>
-            <div class="header-actions">
-                <button class="print-btn" onclick="window.print()">🖨️ طباعة البحث / حفظ كـ PDF</button>
-                <button class="logout-btn" id="logoutBtn">🔒 تسجيل الخروج</button>
-            </div>
         </header>
 
         <div class="container">
             <!-- مقدمة البحث -->
-            <section class="intro-section">
+            <section class="intro-section" id="sec-intro">
                 <h2>مقدمة البحث</h2>
                 <p>
                     مثّل العصر العباسي مرحلةً غنيةً بالتنوع المعرفي وتلاقي العلوم والآداب في حواضر مثل بغداد والبصرة ومراكز العلم الأخرى. ويتيح اختيار ثلاثة أعلام متبايني التخصصات — هم <strong>محمد بن موسى الخوارزمي</strong>، و<strong>أبو عثمان عمرو بن بحر الجاحظ</strong>، و<strong>الحسن بن الهيثم</strong> — رؤيةً شاملةً لتكامل البحث الرياضي والفلكي، والبيان الأدبي والملاحظة الطبيعية، والمنهج التجريبي في البصريات والفيزياء.
@@ -916,40 +1069,35 @@
             </section>
 
             <!-- أدوات البحث والتصفية -->
-            <section class="controls">
+            <section class="controls" id="sec-scholars">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="ابحث في الأسماء، المناهج، الإنجازات، أو المؤلفات...">
+                    <input type="text" id="searchInput" placeholder="🔍 ابحث في الأسماء، المناهج، الإنجازات، أو المؤلفات...">
                 </div>
                 <div class="filter-buttons" id="filterButtons">
                     <button class="filter-btn active" data-category="all">الكل (3)</button>
                     <button class="filter-btn" data-category="الرياضيات والفلك">الرياضيات والفلك</button>
-                    <button class="filter-btn" data-category="الأدب والملاحظة الطبيعية">الأدب والملاحظة الطبيعية</button>
+                    <button class="filter-btn" data-category="الأدب والملاحظة الطبيعية">الأدب والملاحظة</button>
                     <button class="filter-btn" data-category="الفيزياء والبصريات">الفيزياء والبصريات</button>
                 </div>
             </section>
 
             <!-- شبكة عرض العلماء -->
-            <section class="scholars-grid" id="scholarsGrid">
-                <!-- يتم توليد البطاقات تلقائياً بواسطة JavaScript -->
-            </section>
+            <section class="scholars-grid" id="scholarsGrid"></section>
 
             <!-- شريط 3D لتطوير الموقع والتواصل معنا -->
             <section class="dev-3d-section" id="contact3dSection">
                 <div class="dev-3d-ribbon" id="dev3dRibbon">
                     <div class="dev-3d-content">
                         <div class="dev-3d-info">
-                            <span class="dev-3d-tag">3D DEV & CONTACT RIBBON</span>
-                            <h2>تطوير الموقع والتواصل معنا</h2>
+                            <span class="dev-3d-tag">تطبيق طلابي تفاعلي • 2 ع ت 2</span>
+                            <h2>تطوير التطبيق والتواصل معنا</h2>
                             <p>
-                                مشروع طلابي من <strong>القسم 2 علمي 2</strong> — لأي استفسار أو ملاحظة أو مقترح حول تطوير الموقع، يمكنك التواصل معنا مباشرة عبر إنستغرام أو البريد الإلكتروني.
+                                مشروع طلابي من <strong>القسم 2 علوم تجريبية 2</strong> — لأي استفسار أو ملاحظة أو مقترح حول تطوير التطبيق، يمكنك التواصل معنا مباشرة عبر البريد الإلكتروني.
                             </p>
                         </div>
                         <div class="contact-3d-actions">
-                            <a href="https://www.instagram.com/l7archi_/" target="_blank" rel="noopener noreferrer" class="contact-3d-link insta-link">
-                                <span>📸 إنستغرام: @l7archi_</span>
-                            </a>
-                            <a href="mailto:laichimohammed@gmail.com" class="contact-3d-link email-link">
-                                <span>✉️ البريد: laichimohammed@gmail.com</span>
+                            <a href="mailto:laichimohammed1@gmail.com" class="contact-3d-link email-link">
+                                <span>✉️ البريد: laichimohammed1@gmail.com</span>
                             </a>
                         </div>
                     </div>
@@ -957,7 +1105,7 @@
             </section>
 
             <!-- خاتمة البحث -->
-            <section class="conclusion">
+            <section class="conclusion" id="sec-conclusion">
                 <h2>خاتمة البحث</h2>
                 <p>
                     تكشف دراسة أعمال الخوارزمي والجاحظ وابن الهيثم أن النهضة المعرفية في العصر العباسي لم تقتصر على حقل واحد، بل جمعت بين الدقة الرياضية المجرّدة، والقدرة الأدبية على تصوير الواقع والمجتمع والطبيعة، والاعتماد على التجربة والقياس للتحقق من الفرضيات العلمية.
@@ -967,12 +1115,13 @@
                 </p>
 
                 <div class="developers-box">
-                    <h3>فريق التطوير — القسم: 2 علمي 2</h3>
+                    <h3>فريق التطوير — القسم: 2 علوم تجريبية 2</h3>
                     <ul class="developers-list">
                         <li>لعيشي محمد الامين</li>
                         <li>بن عيسي سعود</li>
                         <li>علاف وسيم</li>
-                        <li>بلعيسل صلاح الدين</li>
+                        <li>صحراوي العيد</li>
+                        <li>سليم</li>
                     </ul>
                 </div>
             </section>
@@ -982,19 +1131,111 @@
         <div class="modal" id="scholarModal">
             <div class="modal-content">
                 <button class="close-modal" id="closeModal">&times;</button>
-                <div class="modal-body" id="modalBody">
-                    <!-- محتوى العالم التفصيلي يظهر هنا -->
-                </div>
+                <div class="modal-body" id="modalBody"></div>
             </div>
         </div>
 
         <footer>
-            <p>القسم: 2 علمي 2 | المطورون: لعيشي محمد الامين - بن عيسي سعود - علاف وسيم - بلعيسل صلاح الدين</p>
+            <p>القسم: 2 علوم تجريبية 2 | المطور: لعيشي محمد الامين</p>
         </footer>
+
+        <!-- شريط التنقل السفلي للتطبيق -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="scrollToSection('sec-home', this)">
+                <span class="nav-icon">🏛️</span>
+                <span>الرئيسية</span>
+            </button>
+            <button class="nav-item" onclick="scrollToSection('sec-scholars', this)">
+                <span class="nav-icon">📚</span>
+                <span>العلماء</span>
+            </button>
+            <button class="nav-item" onclick="scrollToSection('sec-conclusion', this)">
+                <span class="nav-icon">✒️</span>
+                <span>الخاتمة</span>
+            </button>
+            <button class="nav-item" onclick="scrollToSection('contact3dSection', this)">
+                <span class="nav-icon">👥</span>
+                <span>الفريق</span>
+            </button>
+        </nav>
     </div>
 
     <script>
-        // إعدادات اسم المستخدم وكلمة المرور
+        const scholarsData = [
+            {
+                id: "khwarizmi",
+                name: "محمد بن موسى الخوارزمي",
+                monogram: "الخوارزمي",
+                dates: "نحو 164 هـ – 232 هـ / 780 – 850 م",
+                category: "الرياضيات والفلك",
+                theme: "theme-1",
+                caption: "بيت الحكمة — بغداد",
+                summary: "عالم رياضيات وفلك وجغرافيا بارز في بيت الحكمة ببغداد في عهد الخليفة المأمون، واضع علم الجبر كعلم مستقل ومؤسس الخوارزميات.",
+                highlights: [
+                    "مؤسس علم الجبر والمقابلة كعلم مستقل عن الحساب.",
+                    "نشر الأرقام الهندية-العربية ونظام الصفر العشري.",
+                    "وضع الزيج السند هند وخريطة العالم في صورة الأرض."
+                ],
+                biography: "نشأ في إقليم خوارزم وانتقل إلى بغداد حيث لمع نجمه في بيت الحكمة خلال خلافة المأمون العباسي. كلفه المأمون برسم خريطة للعالم وقياس محيط الأرض، فأشرف على فريق من العلماء لإنجاز أدق القياسات الجغرافية والفلكية في عصره.",
+                methodology: "اعتمد الخوارزمي على البرهان الهندسي لتأكيد صحة الحلول الجبرية، وصاغ القواعد الرياضية بلغة واضحة وممنهجة تهدف إلى حل المشكلات العملية في المواريث والتجارة والمساحة.",
+                works: [
+                    "الكتاب المختصر في حساب الجبر والمقابلة.",
+                    "كتاب الجمع والتفريق بحساب الهند.",
+                    "كتاب صورة الأرض (في الجغرافيا الفلكية).",
+                    "الزيج السند هند (جداول فلكية لحركة الكواكب)."
+                ],
+                impact: "اشتُقت من اسمه كلمة (Algorithm / الخوارزمية) التي تقوم عليها علوم الحاسوب الحديثة، كما انتقل مصطلح (Algebra) إلى اللغات العالمية من عنوان كتابه الشهير."
+            },
+            {
+                id: "jahiz",
+                name: "أبو عثمان عمرو بن بحر الجاحظ",
+                monogram: "الجاحظ",
+                dates: "159 هـ – 255 هـ / 776 – 868 م",
+                category: "الأدب والملاحظة الطبيعية",
+                theme: "theme-2",
+                caption: "حاضرة البصرة وبغداد",
+                summary: "أحد أعظم أئمة النثر العربي في العصر العباسي، جمع بين البلاغة الأدبية، الموسوعية الفكرية، والملاحظة الدقيقة لطبائع الحيوان والإنسان.",
+                highlights: [
+                    "مؤلف موسوعة (الحيوان) التي جمعت الأدب بعلم الطبائع.",
+                    "أرسى قواعد البيان العربي والنقد الأدبي المنهجي.",
+                    "استخدم الشك المنهجي والتجربة للتحقق من الروايات."
+                ],
+                biography: "وُلد ونشأ في البصرة التي كانت ملتقى الثقافات واللغات والعلماء، وتلقى العلم على يد كبار اللغويين والمعتزلة، ثم انتقل إلى بغداد وسامراء. عُرف بشغفه الشديد بالقراءة والبحث حتى قيل إنه كان يستأجر دكاكين الوراقين للمبيت فيها والمطالعة.",
+                methodology: "تميّز الجاحظ بمنهج نقدي يقوم على عدم التسليم بالخرافات الشائعة إلا بعد الفحص والملاحظة المباشرة، ودمج الفكاهة الراقية بالتحليل الاجتماعي والنفسي الدقيق.",
+                works: [
+                    "كتاب الحيوان (موسوعة في سبعة أجزاء).",
+                    "البيان والتبيين (في البلاغة والخطابة والنقد).",
+                    "البخلاء (تحليل أدبي واجتماعي لنماذج إنسانية).",
+                    "المحاسن والأضداد."
+                ],
+                impact: "أثرى المكتبة العربية بأسلوب نثري فريد، وقدم ملاحظات مبكرة حول تكيف الكائنات الحية مع بيئاتها وسلاسل الغذاء وتأثير المناخ."
+            },
+            {
+                id: "ibn-al-haytham",
+                name: "الحسن بن الهيثم",
+                monogram: "ابن الهيثم",
+                dates: "354 هـ – 430 هـ / 965 – 1040 م",
+                category: "الفيزياء والبصريات",
+                theme: "theme-3",
+                caption: "رائد المنهج التجريبي",
+                summary: "عالم موسوعي في البصريات والرياضيات والهندسة، صحّح نظريات الإبصار القديمة وأثبت أن الرؤية تحدث بانعكاس الضوء من الأجسام إلى العين.",
+                highlights: [
+                    "مؤلف كتاب (المناظر) المرجع الأساسي لعلم البصريات.",
+                    "أرسى قواعد المنهج العلمي التجريبي القائم على الاستقراء.",
+                    "شرح آلية عمل الغرفة المظلمة (الكاميرا) وتشريح العين."
+                ],
+                biography: "وُلد في البصرة في العصر العباسي وتلقى علومه فيها وفي بغداد، ثم انتقل إلى القاهرة حيث تفرغ للبحث العلمي والتأليف في البصريات والرياضيات والفلك والهندسة.",
+                methodology: "يُعد ابن الهيثم رائد المنهج التجريبي الحديث؛ إذ اشترط إخضاع الفرضيات للتجربة العملية القابلة للتكرار، والجمع بين الاستقراء والقياس الرياضي والابتعاد عن الهوى.",
+                works: [
+                    "كتاب المناظر (في علم البصريات والضوء).",
+                    "مقالة في الضوء.",
+                    "الشكوك على بطليموس (نقد علمي للنماذج الفلكية القديمة).",
+                    "رسالة في المكان."
+                ],
+                impact: "تُرجم كتابه (المناظر) إلى اللاتينية وكان الأساس الذي بنى عليه علماء أوروبا أمثال روجر بيكون وكيبلر أبحاثهم في الضوء والعدسات."
+            }
+        ];
+
         const VALID_USERNAME = "admin";
         const VALID_PASSWORD = "admin";
 
@@ -1021,6 +1262,7 @@
             sessionStorage.setItem('abbasid_auth', 'true');
             sessionStorage.setItem('abbasid_user', usernameLabel || VALID_USERNAME);
             activeUserBadge.textContent = `المستخدم: ${sessionStorage.getItem('abbasid_user')}`;
+            renderScholars(scholarsData);
         }
 
         function lockApp() {
@@ -1041,12 +1283,12 @@
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const enteredUser = usernameInput.value.trim();
-            const enteredPass = passwordInput.value;
+            const user = usernameInput.value.trim();
+            const pass = passwordInput.value.trim();
 
-            if (enteredUser === VALID_USERNAME && enteredPass === VALID_PASSWORD) {
+            if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
                 loginError.style.display = 'none';
-                unlockApp(enteredUser);
+                unlockApp(user);
             } else {
                 loginError.style.display = 'block';
             }
@@ -1054,288 +1296,137 @@
 
         logoutBtn.addEventListener('click', lockApp);
 
-        // تحديث شريط تقدم القراءة
-        window.addEventListener('scroll', () => {
-            if (appContent.style.display === 'none') return;
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
-            readingProgress.style.width = `${progress}%`;
-        });
-
-        // تفاعل إمالة ثلاثية الأبعاد (3D Tilt) لشريط تطوير الموقع والتواصل
-        const dev3dRibbon = document.getElementById('dev3dRibbon');
-        if (dev3dRibbon) {
-            dev3dRibbon.addEventListener('mousemove', (e) => {
-                const rect = dev3dRibbon.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                const rotateY = x * 10;
-                const rotateX = -y * 10;
-                dev3dRibbon.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
-            });
-
-            dev3dRibbon.addEventListener('mouseleave', () => {
-                dev3dRibbon.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-        }
-
-        // قاعدة بيانات تفصيلية للعلماء الثلاثة فقط (يمكن إضافة رابط صورة مباشر في imageUrl لكل عالم)
-        const scholarsData = [
-            {
-                id: 1,
-                name: "محمد بن موسى الخوارزمي",
-                title: "مؤسس علم الجبر ورائد الخوارزميات",
-                category: "الرياضيات والفلك",
-                dates: "نحو 164هـ - نحو 232هـ / نحو 780م - نحو 850م",
-                imageUrl: "",
-                monogram: "خ",
-                themeClass: "theme-1",
-                artCaption: "الجبر والحساب والفلك والجغرافيا الرياضية",
-                environment: "ارتبط اسمه ببغداد في العصر العباسي، حيث ازدهرت العلوم الرياضية والفلكية والجغرافية وتلاقحت المعارف الحسابية والهندسية والفلكية.",
-                summary: "عالم رياضيات وفلك وجغرافيا، يُعد من أبرز من أسهموا في تنظيم علم الجبر كفرع مستقل وتبسيط قواعد الحساب والعمليات المعادلاتية وتطبيقاتها الفلكية والجغرافية.",
-                quickHighlights: [
-                    "تصنيف المعادلات الخطية والتربيعية وطرق حلها المنهجية.",
-                    "الإسهام في نشر النظام العشري واستخدام الصفر واشتقاق (الخوارزميات).",
-                    "الجمع بين الحساب الفلكي ورسم الخرائط وتحديد المواقع."
-                ],
-                methodology: "اعتمد الخوارزمي في كتاباته الرياضية على التدرج من الأمثلة العملية والصور الهندسية إلى القواعد العامة الواضحة، مما جعل الجبر أداة عملية لحل المسائل الحسابية والميراث والمساحة والمعاملات.",
-                achievements: [
-                    "تأسيس علم الجبر بوصفه علماً مستقلاً يبحث في المجهولات والعلاقات العددية، وتقسيم المعادلات إلى أنماط قياسية وحلها بطريقي (الجبر) و(المقابلة).",
-                    "الإسهام في تعريف الأوساط العلمية بالنظام العددي العشري ومكانة الصفر، وارتباط اسمه لاحقاً بمفهوم (الخوارزميات) الذي يصف الخطوات المتسلسلة لحل المسائل.",
-                    "تطوير الجداول الفلكية (الزيج) وحساب مواقع الكواكب وحركة الشمس والقمر وأوقات الكسوف والخسوف.",
-                    "الإسهام في الجغرافيا الوصفية والرياضية من خلال ترتيب المدن والأقاليم وتحديد إحداثياتها ومراجعة الخرائط الجغرافية."
-                ],
-                books: [
-                    "المختصر في حساب الجبر والمقابلة: الكتاب التأسيسي الذي وضع أصول الجبر وقدم تطبيقاته العملية.",
-                    "صورة الأرض: عمل جغرافي يضم إحداثيات المدن والجبال والبحار والأنهار والأقاليم.",
-                    "زيج السند هند: عمل فلكي رياضي يجمع الجداول الفلكية وطرق الحساب الفلكي."
-                ],
-                legacy: "شكّلت مؤلفاته نقطة تحول في تاريخ الرياضيات والحساب، وظلت مصطلحاته ومناهجه حاضرة في تطور الجبر والرياضيات التطبيقية وعلوم الحساب."
-            },
-            {
-                id: 2,
-                name: "أبو عثمان عمرو بن بحر الجاحظ",
-                title: "إمام الأدب والبيان وصاحب الملاحظات الوصفية",
-                category: "الأدب والملاحظة الطبيعية",
-                dates: "نحو 160هـ - 255هـ / نحو 776م - 868م",
-                imageUrl: "",
-                monogram: "ج",
-                themeClass: "theme-2",
-                artCaption: "بلاغة النثر العربي والملاحظة الوصفية لطبائع الكائنات",
-                environment: "نشأ في البصرة التي كانت بيئة حافلة بالمناظرات اللغوية والفكرية والاجتماعية، ثم اتصل بالحياة الثقافية والأدبية في العصر العباسي، وتميّز بسعة القراءة والملاحظة المباشرة.",
-                summary: "أديب ومفكر وموسوعي عربي، جمع بين جمال الأسلوب ووضوح البيان ودقة الملاحظة في وصف طبائع البشر والمجتمع وسلوك الحيوان والبيئة.",
-                quickHighlights: [
-                    "تطوير النثر العربي الفني والجمع بين الجد والفكاهة والتحليل.",
-                    "تدوين ملاحظات دقيقة عن سلوك الحيوانات وتأثرها بالبيئة في (الحيوان).",
-                    "تحليل الظواهر الاجتماعية والسلوكية واللغوية بأسلوب نقدي حي."
-                ],
-                methodology: "قام منهج الجاحظ على الملاحظة المتأنية، والشك المنهجي في الروايات غير الموثوقة، والاستطراد المنظم الذي يربط الظاهرة الأدبية أو الطبيعية بسياقها الثقافي والبيئي، مع عناية فائقة باختيار اللفظ الدقيق.",
-                achievements: [
-                    "الارتقاء بالنثر العربي وجعله وعاءً مرناً قادراً على معالجة القضايا العلمية والاجتماعية والفلسفية والأدبية بلغة رشيقة واضحة.",
-                    "رصد سلوك الحيوانات وطرق غذائها وتكاثرها وتأثرها بالبيئة والمناخ في كتاب (الحيوان)، مع عرض ملاحظات وصفية سبقت عصره في دقة التفصيل.",
-                    "تقديم دراسة شاملة للبلاغة والفصاحة وآداب الكلام والخطابة والكتابة في (البيان والتبيين).",
-                    "تصوير الطبائع والسلوكيات الاجتماعية في قالب أدبي ساخر وعميق يكشف أبعاد الحياة اليومية في المجتمع العباسي."
-                ],
-                books: [
-                    "الحيوان: موسوعة أدبية وعلمية وصفية تتناول طبائع الحيوان وسلوكه والبيئة والحكايات والأخبار المرتبطة به.",
-                    "البيان والتبيين: مرجع رئيس في البلاغة والبيان وفنون الخطابة والرواية.",
-                    "البخلاء: عمل أدبي واجتماعي بارز يصور النماذج البشرية وسلوكياتها بأسلوب سردي وحواري متقن."
-                ],
-                legacy: "يُعد الجاحظ من أعمدة النثر العربي، وقد أسهم أسلوبه التحليلي وملاحظاته الوصفية في إثراء الأدب العربي ودراسات البيان والطبائع الإنسانية والطبيعية."
-            },
-            {
-                id: 3,
-                name: "الحسن بن الهيثم",
-                title: "رائد علم البصريات والمنهج التجريبي",
-                category: "الفيزياء والبصريات",
-                dates: "354هـ - نحو 430هـ / 965م - نحو 1040م",
-                imageUrl: "",
-                monogram: "هـ",
-                themeClass: "theme-3",
-                artCaption: "البصريات والضوء والمنهج العلمي التجريبي",
-                environment: "عاش في فترة ازدهرت فيها العلوم الفيزيائية والرياضية والهندسية، وجمع بين التمكن الرياضي الدقيق والاهتمام بالتجربة والاختبار العملي.",
-                summary: "عالم فيزياء وبصريات ورياضيات، أسهم بعمق في تصحيح النظريات السائدة حول الإبصار والضوء، وأرسى خطوات واضحة للمنهج التجريبي القائم على الاختبار والبرهان.",
-                quickHighlights: [
-                    "إثبات أن الإبصار يحدث بوصول الضوء من الأجسام إلى العين.",
-                    "دراسة الانعكاس والانكسار وتجارب القمرة المظلمة والظلال.",
-                    "الربط المنهجي بين التجربة المضبوطة والبرهان الرياضي."
-                ],
-                methodology: "اتسم منهج ابن الهيثم بالانتقال من الاستقراء والملاحظة إلى وضع الفرضيات، ثم اختبارها عبر تجارب مضبوطة واستخدام الأدوات والأجهزة، وإخضاع النتائج للتحليل الهندسي والرياضي الدقيق.",
-                achievements: [
-                    "إثبات أن الإبصار يتم نتيجة انعكاس الضوء أو صدوره من الأجسام ووصوله إلى العين، لا بخروج أشعة من العين كما كانت تقول بعض الآراء السابقة.",
-                    "دراسة ظواهر انتشار الضوء في خطوط مستقيمة، والانعكاس عن المرايا المستوية والمنحنية، والانكسار عند انتقال الضوء بين أوساط مختلفة الكثافة.",
-                    "إجراء تجارب على الضوء والظلال ودراسة الظواهر المرتبطة بالقمرة المظلمة وتكوّن الصور.",
-                    "الجمع بين التشريح الوظيفي للعين والهندسة البصرية والفيزياء لتفسير كيفية إدراك الصور والألوان والأبعاد."
-                ],
-                books: [
-                    "كتاب المناظر: العمل الأبرز في علم البصريات والمنهج التجريبي، الذي تناول الضوء والإبصار والانعكاس والانكسار وإدراك البصر.",
-                    "ميزان الحكمة: كتاب في الفيزياء والميكانيكا والهيدروستاتيكا والكثافات والموازين.",
-                    "مقالة في الضوء: بحث مركز في طبيعة الضوء وانتشاره وتأثيره في الأجسام."
-                ],
-                legacy: "ترك ابن الهيثم أثراً بالغاً في تاريخ البصريات والمنهج العلمي التجريبي، حيث أصبحت طريقته في الجمع بين التجربة والبرهان الرياضي نموذجاً يُستشهد به في تطور العلوم الطبيعية."
-            }
-        ];
-
-        const grid = document.getElementById('scholarsGrid');
+        const scholarsGrid = document.getElementById('scholarsGrid');
         const searchInput = document.getElementById('searchInput');
         const filterButtons = document.querySelectorAll('.filter-btn');
-        const modal = document.getElementById('scholarModal');
-        const modalBody = document.getElementById('modalBody');
-        const closeModal = document.getElementById('closeModal');
-
         let currentCategory = 'all';
 
-        function buildMediaBlock(scholar, isModal = false) {
-            if (scholar.imageUrl && scholar.imageUrl.trim() !== '') {
-                const wrapperClass = isModal ? 'modal-hero' : 'scholar-media';
-                return `<div class="${wrapperClass}"><img src="${scholar.imageUrl}" alt="${scholar.name}"></div>`;
-            }
-            const heightStyle = isModal ? 'style="height: 160px; border-radius: 10px; margin-bottom: 1.2rem;"' : '';
-            return `
-                <div class="scholar-media" ${heightStyle}>
-                    <div class="scholar-art-placeholder ${scholar.themeClass}">
-                        <div class="scholar-monogram">${scholar.monogram}</div>
-                        <div class="scholar-art-caption">${scholar.artCaption}</div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderScholars(data) {
-            grid.innerHTML = '';
-            if (data.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; font-size: 1.2rem; color: #64748b;">لا توجد نتائج مطابقة لبحثك.</p>';
+        function renderScholars(list) {
+            scholarsGrid.innerHTML = '';
+            if (list.length === 0) {
+                scholarsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 2rem; font-weight:bold; color: var(--primary-color);">لا توجد نتائج مطابقة لبحثك.</p>`;
                 return;
             }
 
-            data.forEach(scholar => {
-                const card = document.createElement('div');
+            list.forEach(scholar => {
+                const card = document.createElement('article');
                 card.className = 'scholar-card';
                 card.innerHTML = `
-                    ${buildMediaBlock(scholar, false)}
-                    <div class="scholar-body">
-                        <div>
-                            <span class="badge">${scholar.category}</span>
-                            <h3>${scholar.name}</h3>
-                            <span class="dates">${scholar.title} | ${scholar.dates}</span>
-                            <p>${scholar.summary}</p>
-                            <ul class="card-highlights">
-                                ${scholar.quickHighlights.map(h => `<li>• ${h}</li>`).join('')}
-                            </ul>
+                    <div>
+                        <div class="scholar-media">
+                            <div class="scholar-art-placeholder ${scholar.theme}">
+                                <div class="scholar-monogram">${scholar.monogram}</div>
+                                <span class="scholar-art-caption">${scholar.caption}</span>
+                            </div>
                         </div>
-                        <button class="details-btn" onclick="openScholarModal(${scholar.id})">عرض البحث التفصيلي الكامل ←</button>
+                        <div class="scholar-body">
+                            <div>
+                                <span class="badge">${scholar.category}</span>
+                                <h3>${scholar.name}</h3>
+                                <span class="dates">${scholar.dates}</span>
+                                <p>${scholar.summary}</p>
+                                <ul class="card-highlights">
+                                    ${scholar.highlights.map(h => `<li>• ${h}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <button class="details-btn" onclick="openScholarModal('${scholar.id}')">📖 قراءة البحث المفصل</button>
+                        </div>
                     </div>
                 `;
-                grid.appendChild(card);
+                scholarsGrid.appendChild(card);
             });
         }
 
-        function filterData() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const filtered = scholarsData.filter(scholar => {
-                const matchesCategory = currentCategory === 'all' || scholar.category === currentCategory;
-                const matchesSearch =
-                    scholar.name.toLowerCase().includes(searchTerm) ||
-                    scholar.title.toLowerCase().includes(searchTerm) ||
-                    scholar.summary.toLowerCase().includes(searchTerm) ||
-                    scholar.environment.toLowerCase().includes(searchTerm) ||
-                    scholar.methodology.toLowerCase().includes(searchTerm) ||
-                    scholar.legacy.toLowerCase().includes(searchTerm) ||
-                    scholar.achievements.some(ach => ach.toLowerCase().includes(searchTerm)) ||
-                    scholar.books.some(book => book.toLowerCase().includes(searchTerm));
-                return matchesCategory && matchesSearch;
+        function filterScholars() {
+            const query = searchInput.value.trim().toLowerCase();
+            const filtered = scholarsData.filter(s => {
+                const matchesCategory = currentCategory === 'all' || s.category === currentCategory;
+                const fullText = `${s.name} ${s.category} ${s.summary} ${s.biography} ${s.works.join(' ')}`.toLowerCase();
+                return matchesCategory && fullText.includes(query);
             });
             renderScholars(filtered);
         }
+
+        searchInput.addEventListener('input', filterScholars);
 
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterButtons.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                currentCategory = btn.getAttribute('data-category');
-                filterData();
+                currentCategory = btn.dataset.category;
+                filterScholars();
             });
         });
 
-        searchInput.addEventListener('input', filterData);
-
-        function copyText(text, btnEl) {
-            navigator.clipboard.writeText(text).then(() => {
-                const original = btnEl.textContent;
-                btnEl.textContent = 'تم النسخ ✓';
-                setTimeout(() => {
-                    btnEl.textContent = original;
-                }, 1500);
-            });
-        }
+        const scholarModal = document.getElementById('scholarModal');
+        const modalBody = document.getElementById('modalBody');
+        const closeModal = document.getElementById('closeModal');
 
         function openScholarModal(id) {
-            const scholar = scholarsData.find(s => s.id === id);
-            if (!scholar) return;
-
-            const summaryCopyText = `${scholar.name} (${scholar.title}): ${scholar.summary}`;
-            const booksCopyText = scholar.books.join('\n');
+            const s = scholarsData.find(item => item.id === id);
+            if (!s) return;
 
             modalBody.innerHTML = `
-                ${buildMediaBlock(scholar, true)}
-                <span class="badge">${scholar.category}</span>
-                <h2>${scholar.name}</h2>
-                <div class="modal-meta">
-                    <strong>اللقب العلمي أو الأدبي:</strong> ${scholar.title}<br>
-                    <strong>الفترة التاريخية:</strong> ${scholar.dates}
-                </div>
-
+                <h2>${s.name}</h2>
+                <div class="modal-meta">${s.category} | ${s.dates}</div>
                 <div class="modal-tools">
-                    <button type="button" class="copy-btn" id="copySummaryBtn">📋 نسخ النبذة</button>
-                    <button type="button" class="copy-btn" id="copyBooksBtn">📚 نسخ المؤلفات</button>
+                    <button class="copy-btn" onclick="copyScholarSummary('${s.id}')">📋 نسخ ملخص العالم</button>
                 </div>
-
-                <h4>نبذة عامة</h4>
-                <p>${scholar.summary}</p>
-
-                <h4>البيئة العلمية والثقافية</h4>
-                <p>${scholar.environment}</p>
-
-                <h4>المنهج والطريقة</h4>
-                <p>${scholar.methodology}</p>
-
-                <h4>أبرز الإنجازات والإسهامات التفصيلية</h4>
+                <h4>السيرة والنشأة</h4>
+                <p>${s.biography}</p>
+                <h4>المنهج العلمي</h4>
+                <p>${s.methodology}</p>
+                <h4>أبرز المؤلفات</h4>
                 <ul>
-                    ${scholar.achievements.map(item => `<li>${item}</li>`).join('')}
+                    ${s.works.map(w => `<li>${w}</li>`).join('')}
                 </ul>
-
-                <h4>أهم المؤلفات</h4>
-                <ul>
-                    ${scholar.books.map(book => `<li>${book}</li>`).join('')}
-                </ul>
-
-                <h4>الأثر والمكانة</h4>
-                <p>${scholar.legacy}</p>
+                <h4>الأثر العلمي والحضاري</h4>
+                <p>${s.impact}</p>
             `;
-
-            document.getElementById('copySummaryBtn').addEventListener('click', function () {
-                copyText(summaryCopyText, this);
-            });
-
-            document.getElementById('copyBooksBtn').addEventListener('click', function () {
-                copyText(booksCopyText, this);
-            });
-
-            modal.style.display = 'flex';
+            scholarModal.style.display = 'flex';
         }
 
         closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
+            scholarModal.style.display = 'none';
         });
 
         window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
+            if (e.target === scholarModal) {
+                scholarModal.style.display = 'none';
             }
         });
 
-        renderScholars(scholarsData);
+        function showToast(msg) {
+            const toast = document.getElementById('appToast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function copyScholarSummary(id) {
+            const s = scholarsData.find(item => item.id === id);
+            if (!s) return;
+            const text = `${s.name} (${s.dates})\nالتخصص: ${s.category}\n${s.summary}\nأبرز المؤلفات: ${s.works.join('، ')}`;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('تم نسخ بطاقة العالم إلى الحافظة ✓');
+            });
+        }
+
+        function scrollToSection(sectionId, btnEl) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            readingProgress.style.width = `${progress}%`;
+        });
     </script>
 </body>
 </html>
