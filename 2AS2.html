@@ -13,12 +13,12 @@
     
     <style>
         :root {
-            --primary-color: #162e4d; /* أزرق ملكي عباسي داكن */
+            --primary-color: #162e4d;
             --primary-light: #234775;
-            --secondary-color: #c59b27; /* ذهبي مخطوطات وتراثي */
+            --secondary-color: #c59b27;
             --secondary-light: #e5c158;
-            --bg-parchment: #f7f3e8; /* لون ورق المخطوطات الدافئ */
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --bg-parchment: #f7f3e8;
+            --card-bg: rgba(255, 255, 255, 0.96);
             --text-dark: #1e293b;
             --text-muted: #5a6778;
             --border-radius: 16px;
@@ -42,14 +42,12 @@
 
         body {
             background-color: var(--bg-parchment);
-            /* خلفية زخرفة هندسية إسلامية مستوحاة من العصر العباسي */
             background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23c59b27' stroke-width='0.7' stroke-opacity='0.18'%3E%3Cpath d='M40 0l11.7 28.3L80 40 51.7 51.7 40 80 28.3 51.7 0 40l28.3-11.7z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             color: var(--text-dark);
             line-height: 1.8;
-            padding-bottom: 75px; /* مساحة لشريط التطبيق السفلي */
+            padding-bottom: 75px;
         }
 
-        /* شريط الحروف الأبجدية الزخرفي التراثي */
         .abjad-ribbon {
             background: rgba(22, 46, 77, 0.95);
             border-bottom: 3px solid var(--secondary-color);
@@ -65,7 +63,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
-        /* شريط تقدم القراءة */
         .reading-progress {
             position: fixed;
             top: 0;
@@ -90,7 +87,7 @@
         }
 
         .login-screen::before {
-            content: "أ ب ج د هـ و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث خ ذ ض ظ غ";
+            content: "أ ب ج د هـ و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث kh ذ ض ظ غ";
             position: absolute;
             top: 10%;
             left: -10%;
@@ -219,7 +216,6 @@
             text-align: center;
         }
 
-        /* المحتوى الرئيسي للتطبيق */
         .app-content {
             display: none;
             animation: appFadeIn 0.4s ease;
@@ -286,7 +282,6 @@
             border: none;
         }
 
-        /* الترويسة */
         header {
             background: linear-gradient(135deg, #162e4d 0%, #0d1d33 100%);
             color: #fff;
@@ -346,14 +341,12 @@
             color: #e2e8f0;
         }
 
-        /* الحاوية الرئيسية */
         .container {
             max-width: 1180px;
             margin: 0 auto;
             padding: 1.8rem 1.2rem;
         }
 
-        /* مقدمة البحث */
         .intro-section {
             background: var(--card-bg);
             padding: 2rem;
@@ -404,7 +397,6 @@
             margin-bottom: 0.25rem;
         }
 
-        /* شريط البحث والتصفية */
         .controls {
             display: flex;
             flex-wrap: wrap;
@@ -462,10 +454,9 @@
             color: #f8e39c;
         }
 
-        /* شبكة بطاقات العلماء */
         .scholars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
             gap: 1.6rem;
         }
 
@@ -486,10 +477,10 @@
             box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
         }
 
-        /* إطار صورة العالم أو التراث */
+        /* تصميم الأيقونات الفنية داخل كارت الصفحة الرئيسية كما في صورتك */
         .scholar-media {
             position: relative;
-            height: 185px;
+            height: 195px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -509,16 +500,6 @@
             padding: 1rem;
             text-align: center;
             position: relative;
-        }
-
-        .scholar-art-placeholder::before {
-            content: "أ ب ج د هـ و ز ح ط ي";
-            position: absolute;
-            bottom: 8px;
-            font-family: var(--font-heritage);
-            font-size: 0.9rem;
-            opacity: 0.25;
-            letter-spacing: 5px;
         }
 
         .scholar-art-placeholder.theme-1 {
@@ -713,7 +694,6 @@
             transform: translateY(-3px);
         }
 
-        /* الخاتمة */
         .conclusion {
             background: var(--card-bg);
             padding: 2rem;
@@ -769,12 +749,12 @@
             font-size: 0.93rem;
         }
 
-        /* النافذة المنبثقة (Modal) */
+        /* النافذة المنبثقة (Modal) مع الصورة التوضيحية داخل قراءة البحث */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(13, 29, 51, 0.72);
+            background: rgba(13, 29, 51, 0.75);
             backdrop-filter: blur(4px);
             z-index: 2000;
             justify-content: center;
@@ -784,12 +764,12 @@
 
         .modal-content {
             background: #fdfbf7;
-            max-width: 760px;
+            max-width: 780px;
             width: 100%;
             border-radius: 18px;
             padding: 2rem;
             position: relative;
-            max-height: 88vh;
+            max-height: 90vh;
             overflow-y: auto;
             border-top: 5px solid var(--secondary-color);
             animation: slideUp 0.28s ease;
@@ -815,6 +795,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .modal-banner {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .modal-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .modal-body h2 {
@@ -912,7 +908,7 @@
         }
 
         .nav-item span.nav-icon {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
         }
 
         .nav-item.active, .nav-item:hover {
@@ -920,7 +916,6 @@
             transform: translateY(-2px);
         }
 
-        /* إشعار منبثق صغير */
         .app-toast {
             position: fixed;
             bottom: 80px;
@@ -955,7 +950,6 @@
             border-top: 2px solid var(--secondary-color);
         }
 
-        /* تنسيق الطباعة */
         @media print {
             body {
                 background: #fff !important;
@@ -994,7 +988,7 @@
     <div class="login-screen" id="loginScreen">
         <div class="login-card">
             <span class="login-badge">القسم: 2 علوم تجريبية 2</span>
-            <h1>بحث حول علماء العصر العباسي، </h1>
+            <h1>موسوعة علماء العصر العباسي</h1>
             <p>يرجى إدخال اسم المستخدم وكلمة المرور للدخول إلى التطبيق البحثي التفاعلي.</p>
 
             <form id="loginForm">
@@ -1019,7 +1013,6 @@
 
     <!-- محتوى التطبيق -->
     <div class="app-content" id="appContent">
-        <!-- شريط التطبيق العلوي -->
         <nav class="app-topbar">
             <div class="app-brand">
                 <span>📜</span>
@@ -1031,9 +1024,8 @@
             </div>
         </nav>
 
-        <!-- شريط الحروف الأبجدية التراثي العباسي -->
         <div class="abjad-ribbon">
-            أ ب ج د هـ و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث خ ذ ض ظ غ • بيت الحكمة • بغداد
+            أ ب ج د هـ و ز ح ط ي ك ل م ن س ع ف ص ق ر ش ت ث kh ذ ض ظ غ • بيت الحكمة • بغداد
         </div>
 
         <header id="sec-home">
@@ -1046,7 +1038,6 @@
         </header>
 
         <div class="container">
-            <!-- مقدمة البحث -->
             <section class="intro-section" id="sec-intro">
                 <h2>مقدمة البحث</h2>
                 <p>
@@ -1068,7 +1059,6 @@
                 </div>
             </section>
 
-            <!-- أدوات البحث والتصفية -->
             <section class="controls" id="sec-scholars">
                 <div class="search-box">
                     <input type="text" id="searchInput" placeholder="🔍 ابحث في الأسماء، المناهج، الإنجازات، أو المؤلفات...">
@@ -1165,11 +1155,12 @@
             {
                 id: "khwarizmi",
                 name: "محمد بن موسى الخوارزمي",
-                monogram: "الخوارزمي",
+                monogram: "جبر",
                 dates: "نحو 164 هـ – 232 هـ / 780 – 850 م",
                 category: "الرياضيات والفلك",
                 theme: "theme-1",
-                caption: "بيت الحكمة — بغداد",
+                caption: "بيت الحكمة – بغداد",
+                imageUrl: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
                 summary: "عالم رياضيات وفلك وجغرافيا بارز في بيت الحكمة ببغداد في عهد الخليفة المأمون، واضع علم الجبر كعلم مستقل ومؤسس الخوارزميات.",
                 highlights: [
                     "مؤسس علم الجبر والمقابلة كعلم مستقل عن الحساب.",
@@ -1189,11 +1180,12 @@
             {
                 id: "jahiz",
                 name: "أبو عثمان عمرو بن بحر الجاحظ",
-                monogram: "الجاحظ",
+                monogram: "📖",
                 dates: "159 هـ – 255 هـ / 776 – 868 م",
                 category: "الأدب والملاحظة الطبيعية",
                 theme: "theme-2",
                 caption: "حاضرة البصرة وبغداد",
+                imageUrl: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80",
                 summary: "أحد أعظم أئمة النثر العربي في العصر العباسي، جمع بين البلاغة الأدبية، الموسوعية الفكرية، والملاحظة الدقيقة لطبائع الحيوان والإنسان.",
                 highlights: [
                     "مؤلف موسوعة (الحيوان) التي جمعت الأدب بعلم الطبائع.",
@@ -1213,11 +1205,12 @@
             {
                 id: "ibn-al-haytham",
                 name: "الحسن بن الهيثم",
-                monogram: "ابن الهيثم",
+                monogram: "👁️",
                 dates: "354 هـ – 430 هـ / 965 – 1040 م",
                 category: "الفيزياء والبصريات",
                 theme: "theme-3",
                 caption: "رائد المنهج التجريبي",
+                imageUrl: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80",
                 summary: "عالم موسوعي في البصريات والرياضيات والهندسة، صحّح نظريات الإبصار القديمة وأثبت أن الرؤية تحدث بانعكاس الضوء من الأجسام إلى العين.",
                 highlights: [
                     "مؤلف كتاب (المناظر) المرجع الأساسي لعلم البصريات.",
@@ -1367,6 +1360,9 @@
             if (!s) return;
 
             modalBody.innerHTML = `
+                <div class="modal-banner">
+                    <img src="${s.imageUrl}" alt="${s.name}">
+                </div>
                 <h2>${s.name}</h2>
                 <div class="modal-meta">${s.category} | ${s.dates}</div>
                 <div class="modal-tools">
